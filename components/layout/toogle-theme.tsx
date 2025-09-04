@@ -4,16 +4,18 @@ import { Moon, Sun } from "lucide-react";
 
 export const ToggleTheme = () => {
   const { theme, setTheme } = useTheme();
+  const isLight = theme === "light";
   return (
     <Button
-      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+      onClick={() => setTheme(isLight ? "dark" : "light")}
       size="sm"
       variant="ghost"
       className="w-full justify-start"
+      aria-label="Alternar tema"
     >
       <div className="flex gap-2 dark:hidden">
         <Moon className="size-5" />
-        <span className="block lg:hidden"> Escuro </span>
+        <span className="block lg:hidden">Oscuro</span>
       </div>
 
       <div className="dark:flex gap-2 hidden">
@@ -21,7 +23,7 @@ export const ToggleTheme = () => {
         <span className="block lg:hidden">Claro</span>
       </div>
 
-      <span className="sr-only">Trocar de tema</span>
+      <span className="sr-only">Cambiar entre tema claro y oscuro</span>
     </Button>
   );
 };

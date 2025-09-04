@@ -1,58 +1,58 @@
-import { BenefitsSection } from "@/components/layout/sections/benefits";
-import { CommunitySection } from "@/components/layout/sections/community";
-import { ContactSection } from "@/components/layout/sections/contact";
-import { FAQSection } from "@/components/layout/sections/faq";
-import { FeaturesSection } from "@/components/layout/sections/features";
 import { FooterSection } from "@/components/layout/sections/footer";
+import { ContactSection } from "@/components/layout/sections/contact";
 import { HeroSection } from "@/components/layout/sections/hero";
-import { PricingSection } from "@/components/layout/sections/pricing";
-import { ServicesSection } from "@/components/layout/sections/services";
-import { SponsorsSection } from "@/components/layout/sections/sponsors";
-import { TeamSection } from "@/components/layout/sections/team";
-import { TestimonialSection } from "@/components/layout/sections/testimonial";
+import { SolutionsSection } from "@/components/layout/sections/solutions";
+import { ProjectsSection } from "@/components/layout/sections/projects";
+import { AboutSection } from "@/components/layout/sections/about";
 
 export const metadata = {
-  title: "Shadcn - Landing template",
-  description: "Free Shadcn landing page for developers",
+  title: "Crateck | Soluciones de Ingeniería, Obra Civil y Eléctrica",
+  description:
+    "Confiabilidad, seguridad y eficiencia en cada proyecto. Agenda tu asesoría gratuita.",
   openGraph: {
     type: "website",
-    url: "https://github.com/nobruf/shadcn-landing-page.git",
-    title: "Shadcn - Landing template",
-    description: "Free Shadcn landing page for developers",
+    url: "https://www.crateck.com",
+    title: "Crateck | Ingeniería, Obra Civil y Eléctrica",
+    description:
+      "Soluciones industriales: instalaciones eléctricas, terracerías, alumbrado, subestaciones y más.",
     images: [
       {
-        url: "https://res.cloudinary.com/dbzv9xfjp/image/upload/v1723499276/og-images/shadcn-vue.jpg",
+        url: "https://res.cloudinary.com/demo/image/upload/sample.jpg",
         width: 1200,
         height: 630,
-        alt: "Shadcn - Landing template",
+        alt: "Crateck - Ingeniería y Construcción",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    site: "https://github.com/nobruf/shadcn-landing-page.git",
-    title: "Shadcn - Landing template",
-    description: "Free Shadcn landing page for developers",
-    images: [
-      "https://res.cloudinary.com/dbzv9xfjp/image/upload/v1723499276/og-images/shadcn-vue.jpg",
-    ],
+    site: "https://www.crateck.com",
+    title: "Crateck | Ingeniería, Obra Civil y Eléctrica",
+    description:
+      "Soluciones industriales: instalaciones eléctricas, terracerías, alumbrado, subestaciones y más.",
+    images: ["https://res.cloudinary.com/demo/image/upload/sample.jpg"],
   },
 };
 
 export default function Home() {
   return (
     <>
+      {/* Inicio */}
       <HeroSection />
-      <SponsorsSection />
-      <BenefitsSection />
-      <FeaturesSection />
-      <ServicesSection />
-      <TestimonialSection />
-      <TeamSection />
-      <CommunitySection />
-      <PricingSection />
+
+      {/* Soluciones */}
+      <SolutionsSection />
+
+      {/* Proyectos */}
+      <ProjectsSection />
+
+      {/* Nosotros */}
+      <AboutSection />
+
+      {/* Contacto */}
       <ContactSection />
-      <FAQSection />
+
+      {/* Footer */}
       <FooterSection />
     </>
   );
