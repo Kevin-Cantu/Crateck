@@ -1,4 +1,4 @@
-import { EquipmentRentalSection } from "@/components/layout/sections/equipment-rental";
+import { EquipmentRentalSection } from "@/components/obra-civil/EquipmentRentalSection";
 
 export const metadata = {
   title: "Obra Civil | Crateck - Renta de Equipo y Construcción",
