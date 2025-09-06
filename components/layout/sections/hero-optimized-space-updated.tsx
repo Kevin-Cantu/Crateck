@@ -1,0 +1,215 @@
+"use client";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Play, Shield, Zap, Award, Phone, Mail, MapPin } from "lucide-react";
+import Image from "next/image";
+import { useState, useEffect } from "react";
+
+export const HeroSectionOptimizedSpace = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  const features = [
+    { icon: Shield, text: "Seguridad Certificada", desc: "Cumplimiento normativo garantizado" },
+    { icon: Zap, text: "Eficiencia Energética", desc: "Soluciones sustentables" },
+    { icon: Award, text: "Calidad Garantizada", desc: "Estándares internacionales" }
+  ];
+
+  const stats = [
+    { number: "500+", label: "Proyectos Completados", sublabel: "En toda la república" },
+    { number: "15+", label: "Años de Experiencia", sublabel: "En el sector industrial" },
+    { number: "98%", label: "Satisfacción del Cliente", sublabel: "Calidad comprobada" }
+  ];
+
+  const services = [
+    "Instalaciones Eléctricas BT/MT",
+    "Subestaciones Industriales", 
+    "Obra Civil y Terracerías",
+    "Alumbrado Industrial",
+    "Administración de Proyectos"
+  ];
+
+  return (
+    <section
+      id="inicio"
+      className="relative w-full h-screen flex overflow-hidden"
+    >
+      {/* Imagen de fondo - EXACTA del hero original */}
+      <Image
+        src="/construcion.jpg"
+        alt="Fondo de construcción - Crateck"
+        fill
+        priority
+        className="object-cover brightness-[0.2] contrast-110 saturate-90"
+      />
+
+      {/* Overlay degradado - EXACTO del hero original */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80" />
+
+      {/* Contenido principal - Layout de dos columnas */}
+      <div className="relative z-10 w-full h-full flex">
+        
+        {/* Columna Izquierda - Contenido Principal */}
+        <div className="flex-1 flex flex-col justify-center px-6 lg:px-12 xl:px-16 py-8">
+          
+          {/* Badge de calidad */}
+          <div className={`transform transition-all duration-700 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full text-primary-foreground text-sm font-medium mb-6">
+              <Award className="w-4 h-4" />
+              Líder en Soluciones de Ingeniería
+            </div>
+          </div>
+
+          {/* Título principal con mejor uso del espacio */}
+          <div className={`transform transition-all duration-700 delay-100 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
+            <h1 className="text-xl md:text-2xl lg:text-3xl font-semibold text-gray-200/90 tracking-wide mb-4">
+              <span className="bg-gradient-to-r from-primary via-primary/80 to-accent text-transparent bg-clip-text">
+                Proyectos de Ingeniería
+              </span>
+            </h1>
+            
+            {/* Marca principal más compacta */}
+            <div className="flex items-center gap-3 text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white drop-shadow-2xl mb-6">
+              <span>Grupo</span>
+              <Image
+                src="/crateclogo-.png"
+                alt="Logo Crateck"
+                width={120}
+                height={50}
+                className="inline-block h-8 md:h-12 lg:h-16 xl:h-20 w-auto object-contain"
+                priority
+              />
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                Crateck
+              </span>
+            </div>
+          </div>
+
+          {/* Descripción optimizada */}
+          <div className={`transform transition-all duration-700 delay-200 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
+            <p className="text-lg md:text-xl lg:text-2xl text-white font-medium mb-3 leading-tight">
+              Construimos proyectos que generan{" "}
+              <span className="text-primary font-semibold">valor</span>,{" "}
+              <span className="text-accent font-semibold">seguridad</span> y{" "}
+              <span className="text-primary font-semibold">crecimiento</span>.
+            </p>
+            <p className="text-base md:text-lg text-gray-300/90 mb-6 leading-relaxed max-w-2xl">
+              Desarrollo integral de ingeniería, obra civil y eléctrica. Especialistas en instalaciones 
+              BT/MT, subestaciones, alumbrado industrial y administración de proyectos.
+            </p>
+          </div>
+
+          {/* Características en layout horizontal */}
+          <div className={`transform transition-all duration-700 delay-300 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+              {features.map((feature, index) => (
+                <div key={index} className="flex items-start gap-3 p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-white/10 transition-all duration-300">
+                  <div className="p-2 bg-primary/20 rounded-lg">
+                    <feature.icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <div className="text-white text-sm font-semibold">{feature.text}</div>
+                    <div className="text-gray-400 text-xs">{feature.desc}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Botones optimizados */}
+          <div className={`transform transition-all duration-700 delay-400 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
+            <div className="flex flex-col sm:flex-row items-start gap-4 mb-6">
+              <a href="#contacto">
+                <Button className="group px-6 py-4 text-base font-semibold bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-primary/25">
+                  Agenda asesoría gratuita
+                  <ArrowRight className="size-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                </Button>
+              </a>
+              <a href="#proyectos">
+                <Button
+                  variant="secondary"
+                  className="group px-6 py-4 text-base font-semibold backdrop-blur-sm bg-white/10 border-white/20 text-white hover:bg-white/20 hover:scale-105 transition-all duration-300"
+                >
+                  <Play className="size-4 mr-2" />
+                  Ver proyectos
+                </Button>
+              </a>
+            </div>
+          </div>
+
+          {/* Contacto rápido */}
+          <div className={`transform transition-all duration-700 delay-500 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
+            <div className="flex flex-wrap gap-4 text-sm text-gray-300">
+              <div className="flex items-center gap-2">
+                <Phone className="w-4 h-4 text-primary" />
+                <span>+52 (xxx) xxx-xxxx</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-primary" />
+                <span>contacto@crateck.com</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-primary" />
+                <span>México</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Columna Derecha - Panel de información */}
+        <div className="hidden lg:flex lg:w-96 xl:w-[420px] flex-col justify-center px-8 py-8">
+          
+          {/* Estadísticas mejoradas */}
+          <div className={`transform transition-all duration-700 delay-600 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
+            <div className="bg-black/20 backdrop-blur-sm rounded-2xl border border-white/10 p-6 mb-6">
+              <h3 className="text-white text-lg font-semibold mb-4">Nuestros Números</h3>
+              <div className="space-y-4">
+                {stats.map((stat, index) => (
+                  <div key={index} className="flex items-center justify-between">
+                    <div>
+                      <div className="text-2xl font-bold text-primary">{stat.number}</div>
+                      <div className="text-sm text-gray-300">{stat.label}</div>
+                      <div className="text-xs text-gray-500">{stat.sublabel}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Servicios destacados */}
+          <div className={`transform transition-all duration-700 delay-700 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
+            <div className="bg-black/20 backdrop-blur-sm rounded-2xl border border-white/10 p-6">
+              <h3 className="text-white text-lg font-semibold mb-4">Servicios Principales</h3>
+              <div className="space-y-3">
+                {services.map((service, index) => (
+                  <div key={index} className="flex items-center gap-3 text-gray-300 text-sm">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    {service}
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4 pt-4 border-t border-white/10">
+                <a href="#soluciones" className="text-primary text-sm font-medium hover:text-primary/80 transition-colors">
+                  Ver todos los servicios →
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Indicador de scroll - posición optimizada */}
+      <div className={`absolute bottom-6 left-6 transition-all duration-700 delay-800 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+        <div className="flex items-center gap-3 text-xs text-gray-400 uppercase tracking-wider">
+          <span>Explora más</span>
+          <div className="w-8 h-5 border border-gray-400 rounded-full flex justify-center items-center">
+            <div className="w-1 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};

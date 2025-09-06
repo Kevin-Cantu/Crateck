@@ -7,7 +7,7 @@ export const HeroSection = () => {
   return (
     <section
       id="inicio"
-      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden -mt-24"
     >
       {/* Imagen de fondo */}
       <Image
