@@ -1,59 +1,134 @@
 import { Separator } from "@/components/ui/separator";
-import { Building2 } from "lucide-react";
+import { Building2, Mail, Phone, MapPin } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export const FooterSection = () => {
   return (
-    <footer id="footer" className="container py-24 sm:py-32">
-      <div className="p-10 bg-card border border-secondary rounded-2xl">
-        <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-x-12 gap-y-8">
+    <footer className="w-full bg-muted/30 border-t border-border mt-24">
+      <div className="container py-12 sm:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand */}
-          <div className="col-span-full xl:col-span-2">
-            <Link href="#" className="flex font-bold items-center">
-              <Building2 className="w-9 h-9 mr-2 bg-gradient-to-tr from-primary via-primary/70 to-primary rounded-lg border border-secondary text-white" />
+          <div className="lg:col-span-1">
+            <Link href="/" className="flex font-bold items-center mb-4">
+              <Image
+                src="/crateclogo-.png"
+                alt="Logo Crateck"
+                width={36}
+                height={36}
+                className="mr-3 h-9 w-9 object-contain"
+                priority
+              />
               <h3 className="text-2xl">Crateck</h3>
             </Link>
-            <p className="mt-3 text-sm text-muted-foreground">
-              Soluciones de ingeniería, obra civil y eléctrica para la industria.
+            <p className="text-sm text-muted-foreground mb-4 max-w-xs">
+              Soluciones integrales de ingeniería, obra civil y eléctrica para la industria. 
+              Confiabilidad, seguridad y eficiencia en cada proyecto.
             </p>
+            <div className="flex flex-col gap-2 text-sm">
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <Mail className="w-4 h-4 text-primary" />
+                <Link href="mailto:contacto@crateck.com" className="hover:text-primary transition-colors">
+                  contacto@crateck.com
+                </Link>
+              </div>
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <Phone className="w-4 h-4 text-primary" />
+                <span>+52 (xxx) xxx-xxxx</span>
+              </div>
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <MapPin className="w-4 h-4 text-primary" />
+                <span>México</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Soluciones */}
+          <div>
+            <h3 className="font-semibold text-base mb-4">Soluciones</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="/desarrollo-ingenieria" className="text-muted-foreground hover:text-primary transition-colors">
+                  Desarrollo de ingeniería
+                </Link>
+              </li>
+              <li>
+                <Link href="/obra-civil" className="text-muted-foreground hover:text-primary transition-colors">
+                  Obra civil
+                </Link>
+              </li>
+              <li>
+                <Link href="/obra-electrica" className="text-muted-foreground hover:text-primary transition-colors">
+                  Obra eléctrica
+                </Link>
+              </li>
+              <li>
+                <Link href="/administracion-proyectos" className="text-muted-foreground hover:text-primary transition-colors">
+                  Administración de proyectos
+                </Link>
+              </li>
+            </ul>
           </div>
 
           {/* Navegación */}
-          <div className="flex flex-col gap-2">
-            <h3 className="font-semibold text-base">Navegación</h3>
-            <ul className="space-y-1 text-sm">
-              <li><Link href="#soluciones" className="opacity-70 hover:opacity-100 transition">Soluciones</Link></li>
-              <li><Link href="#proyectos" className="opacity-70 hover:opacity-100 transition">Proyectos</Link></li>
-              <li><Link href="#nosotros" className="opacity-70 hover:opacity-100 transition">Nosotros</Link></li>
-              <li><Link href="#contacto" className="opacity-70 hover:opacity-100 transition">Contacto</Link></li>
+          <div>
+            <h3 className="font-semibold text-base mb-4">Navegación</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="/" className="text-muted-foreground hover:text-primary transition-colors">
+                  Inicio
+                </Link>
+              </li>
+              <li>
+                <Link href="/#proyectos" className="text-muted-foreground hover:text-primary transition-colors">
+                  Proyectos
+                </Link>
+              </li>
+              <li>
+                <Link href="/#nosotros" className="text-muted-foreground hover:text-primary transition-colors">
+                  Nosotros
+                </Link>
+              </li>
+              <li>
+                <Link href="/#contacto" className="text-muted-foreground hover:text-primary transition-colors">
+                  Contacto
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Contacto */}
-          <div className="flex flex-col gap-2">
-            <h3 className="font-semibold text-base">Contacto</h3>
-            <ul className="space-y-1 text-sm">
-              <li><Link href="mailto:contacto@crateck.com" className="opacity-70 hover:opacity-100 transition">contacto@crateck.com</Link></li>
-              <li><span className="opacity-70">+52 (000) 000-0000</span></li>
-              <li><span className="opacity-70">Dirección de la empresa</span></li>
+          {/* Información */}
+          <div>
+            <h3 className="font-semibold text-base mb-4">Información</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="/aviso-privacidad" className="text-muted-foreground hover:text-primary transition-colors">
+                  Aviso de privacidad
+                </Link>
+              </li>
+              <li>
+                <Link href="/terminos" className="text-muted-foreground hover:text-primary transition-colors">
+                  Términos y condiciones
+                </Link>
+              </li>
             </ul>
-          </div>
-
-          {/* Legal */}
-          <div className="flex flex-col gap-2">
-            <h3 className="font-semibold text-base">Legal</h3>
-            <ul className="space-y-1 text-sm">
-              <li><Link href="#" className="opacity-70 hover:opacity-100 transition">Aviso de privacidad</Link></li>
-              <li><Link href="#" className="opacity-70 hover:opacity-100 transition">Términos y condiciones</Link></li>
-            </ul>
+            
+            <div className="mt-6">
+              <h4 className="font-medium text-sm mb-2">Horario de atención</h4>
+              <div className="text-xs text-muted-foreground">
+                <div>Lunes - Viernes</div>
+                <div>8:00 - 18:00 hrs</div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <Separator className="my-6" />
-        <section className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-sm">
-          <p className="opacity-70">&copy; {new Date().getFullYear()} Crateck. Todos los derechos reservados.</p>
-          <p className="opacity-70">Diseño y desarrollo con enfoque en seguridad y eficiencia.</p>
-        </section>
+        <Separator className="my-8" />
+        
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+          <p>&copy; {new Date().getFullYear()} Grupo Crateck. Todos los derechos reservados.</p>
+          <p>Diseño y desarrollo con enfoque en seguridad y eficiencia.</p>
+        </div>
       </div>
     </footer>
   );
