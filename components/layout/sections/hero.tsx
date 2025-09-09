@@ -11,11 +11,7 @@ export const HeroSection = () => {
     setIsVisible(true);
   }, []);
 
-  const features = [
-    { icon: Shield, text: "Seguridad Certificada", desc: "Cumplimiento normativo garantizado" },
-    { icon: Zap, text: "Eficiencia Energética", desc: "Soluciones sustentables" },
-    { icon: Award, text: "Calidad Garantizada", desc: "Estándares internacionales" }
-  ];
+
 
   const stats = [
     { number: "500+", label: "Proyectos Completados", sublabel: "En toda la república" },
@@ -101,19 +97,7 @@ export const HeroSection = () => {
 
           {/* Características */}
           <div className={`transform transition-all duration-700 delay-300 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-              {features.map((feature, index) => (
-                <div key={index} className="flex items-start gap-3 p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-white/10 transition-all duration-300">
-                  <div className="p-2 bg-primary/20 rounded-lg">
-                    <feature.icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <div className="text-white text-sm font-semibold">{feature.text}</div>
-                    <div className="text-gray-400 text-xs">{feature.desc}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
+
           </div>
 
           {/* Botones */}
@@ -134,24 +118,6 @@ export const HeroSection = () => {
                   Ver proyectos
                 </Button>
               </a>
-            </div>
-          </div>
-
-          {/* Contacto rápido */}
-          <div className={`transform transition-all duration-700 delay-500 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
-            <div className="flex flex-wrap gap-4 text-sm text-gray-300">
-              <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-primary" />
-                <span>+52 (xxx) xxx-xxxx</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-primary" />
-                <span>contacto@crateck.com</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-primary" />
-                <span>México</span>
-              </div>
             </div>
           </div>
         </div>
