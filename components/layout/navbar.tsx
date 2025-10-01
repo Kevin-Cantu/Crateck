@@ -10,14 +10,6 @@ import {
   SheetTrigger,
 } from "../ui/sheet";
 import { Separator } from "../ui/separator";
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuContent,
-} from "../ui/navigation-menu";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import Image from "next/image";
@@ -39,6 +31,7 @@ const routeList: RouteProps[] = [
   { href: "/#proyectos", label: "Proyectos" },
   { href: "/#nosotros", label: "Nosotros" },
   { href: "/#contacto", label: "Contacto" },
+  { href: "/renta-de-equipo", label: "Renta de equipo" },
 ];
 
 const solutionsList: SolutionProps[] = [
@@ -48,12 +41,7 @@ const solutionsList: SolutionProps[] = [
     description: "Diseño, cálculo y documentación técnica",
   },
   {
-    href: "/obra-civil",
-    label: "Obra civil",
-    description: "Terracerías, cimentaciones y estructuras",
-  },
-  {
-    href: "/obra-electrica",
+    href: "/#obra-electrica",
     label: "Obra eléctrica",
     description: "Instalaciones industriales BT/MT",
   },
@@ -156,7 +144,7 @@ export const Navbar = () => {
           </Link>
         ))}
         
-        {/* Dropdown de Soluciones personalizado */}
+        {/* Dropdown de Soluciones */}
         <div className="relative group">
           <button className="text-base px-4 py-2 hover:bg-accent hover:text-accent-foreground rounded-md transition-colors flex items-center">
             Soluciones

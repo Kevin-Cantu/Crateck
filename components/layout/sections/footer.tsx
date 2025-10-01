@@ -53,12 +53,12 @@ export const FooterSection = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/obra-civil" className="text-muted-foreground hover:text-primary transition-colors">
-                  Obra civil
+                <Link href="/renta-de-equipo" className="text-muted-foreground hover:text-primary transition-colors">
+                  Renta de equipo
                 </Link>
               </li>
               <li>
-                <Link href="/obra-electrica" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link href="/#obra-electrica" className="text-muted-foreground hover:text-primary transition-colors">
                   Obra eléctrica
                 </Link>
               </li>
@@ -95,6 +95,14 @@ export const FooterSection = () => {
                 </Link>
               </li>
             </ul>
+            
+            <div className="mt-6">
+              <h4 className="font-medium text-sm mb-2">Horario de atención</h4>
+              <div className="text-xs text-muted-foreground">
+                <div>Lunes - Viernes</div>
+                <div>8:00 - 18:00 hrs</div>
+              </div>
+            </div>
           </div>
 
           {/* Información */}
@@ -112,14 +120,6 @@ export const FooterSection = () => {
                 </Link>
               </li>
             </ul>
-            
-            <div className="mt-6">
-              <h4 className="font-medium text-sm mb-2">Horario de atención</h4>
-              <div className="text-xs text-muted-foreground">
-                <div>Lunes - Viernes</div>
-                <div>8:00 - 18:00 hrs</div>
-              </div>
-            </div>
           </div>
         </div>
 

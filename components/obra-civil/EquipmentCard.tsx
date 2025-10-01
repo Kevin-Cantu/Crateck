@@ -1,14 +1,12 @@
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { EquipmentItem } from "@/types/equipment";
 
 interface EquipmentCardProps {
   equipment: EquipmentItem;
-  onAddToCart: (equipment: EquipmentItem) => void;
 }
 
-export const EquipmentCard = React.memo(({ equipment, onAddToCart }: EquipmentCardProps) => {
+export const EquipmentCard = React.memo(({ equipment }: EquipmentCardProps) => {
   return (
     <Card className="h-full">
       <CardHeader className="pb-3">
@@ -34,28 +32,10 @@ export const EquipmentCard = React.memo(({ equipment, onAddToCart }: EquipmentCa
       </CardHeader>
       
       <CardContent className="pt-0">
-        <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+        <p className="text-sm text-muted-foreground mb-2 line-clamp-2">
           {equipment.description}
         </p>
-        
-        <div className="flex items-center justify-between gap-2">
-          <div className="flex-1">
-            <div className="text-lg font-bold text-primary">
-              ${equipment.price.toLocaleString()}
-            </div>
-            <div className="text-xs text-muted-foreground">
-              por {equipment.unit}
-            </div>
-          </div>
-          
-          <Button 
-            size="sm"
-            onClick={() => onAddToCart(equipment)}
-            className="shrink-0"
-          >
-            + Agregar
-          </Button>
-        </div>
+        {/* Precios y botón de agregar removidos intencionalmente */}
       </CardContent>
     </Card>
   );

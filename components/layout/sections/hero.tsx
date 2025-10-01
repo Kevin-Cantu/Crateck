@@ -14,9 +14,9 @@ export const HeroSection = () => {
 
 
   const stats = [
-    { number: "500+", label: "Proyectos Completados", sublabel: "En toda la república" },
-    { number: "15+", label: "Años de Experiencia", sublabel: "En el sector industrial" },
-    { number: "98%", label: "Satisfacción del Cliente", sublabel: "Calidad comprobada" }
+    { number: "3000+", label: "Clientes Atendidos", sublabel: "Nacionalmente" },
+    { number: "90+", label: "Empleos", sublabel: "En todos los sectores" },
+    { number: "11+", label: "Años de experiencia", sublabel: "Calidad comprobada" }
   ];
 
   const services = [
@@ -30,7 +30,7 @@ export const HeroSection = () => {
   return (
     <section
       id="inicio"
-      className="relative w-full h-screen flex overflow-hidden"
+      className="relative w-full h-screen flex overflow-hidden -mt-14"
     >
       {/* Imagen de fondo */}
       <Image

@@ -1,11 +1,8 @@
 "use client";
 import { useState, useMemo } from "react";
-import { Button } from "@/components/ui/button";
-import { useCart } from "@/hooks/useCart";
 import { EquipmentItem, CategoryType } from "@/types/equipment";
 import { EquipmentCard } from "./EquipmentCard";
 import { CategorySidebar } from "./CategorySidebar";
-import { CartSheet } from "./CartSheet";
 
 const equipmentData: EquipmentItem[] = [
   // Equipo de Generación
@@ -69,16 +66,6 @@ const equipmentData: EquipmentItem[] = [
 export const EquipmentRentalSection = () => {
   const [selectedCategory, setSelectedCategory] = useState<CategoryType>("Equipo de Generación");
 
-  const {
-    items: cartItems,
-    totalItems,
-    totalPrice,
-    addToCart,
-    updateQuantity,
-    removeFromCart,
-    sendWhatsAppMessage,
-  } = useCart();
-
   const categories = useMemo(
     () => Array.from(new Set(equipmentData.map((item) => item.category))) as CategoryType[],
     []
@@ -103,7 +90,7 @@ export const EquipmentRentalSection = () => {
           </p>
         </div>
 
-        {/* Selector móvil y carrito */}
+        {/* Selector móvil sin carrito */}
         <div className="lg:hidden mb-6">
           <div className="flex items-center gap-3 mb-4">
             <select
@@ -117,26 +104,6 @@ export const EquipmentRentalSection = () => {
                 </option>
               ))}
             </select>
-
-            {cartItems.length > 0 && (
-              <CartSheet
-                cartItems={cartItems}
-                totalItems={totalItems}
-                totalPrice={totalPrice}
-                onUpdateQuantity={updateQuantity}
-                onRemoveFromCart={removeFromCart}
-                onSendWhatsApp={sendWhatsAppMessage}
-                side="right"
-                trigger={
-                  <Button variant="outline" className="relative">
-                    🛒 ({cartItems.length})
-                    <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                      {totalItems}
-                    </span>
-                  </Button>
-                }
-              />
-            )}
           </div>
         </div>
 
@@ -148,11 +115,6 @@ export const EquipmentRentalSection = () => {
               categories={categories}
               selectedCategory={selectedCategory}
               onCategoryChange={setSelectedCategory}
-              cartItems={cartItems}
-              totalPrice={totalPrice}
-              onUpdateQuantity={updateQuantity}
-              onRemoveFromCart={removeFromCart}
-              onSendWhatsApp={sendWhatsAppMessage}
             />
           </div>
 
@@ -165,31 +127,11 @@ export const EquipmentRentalSection = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
               {filteredEquipment.map((equipment) => (
-                <EquipmentCard key={equipment.id} equipment={equipment} onAddToCart={addToCart} />
+                <EquipmentCard key={equipment.id} equipment={equipment} />
               ))}
             </div>
           </div>
         </div>
-
-        {/* Carrito móvil bottom */}
-        {cartItems.length > 0 && (
-          <div className="lg:hidden fixed bottom-4 left-4 right-4 z-50">
-            <CartSheet
-              cartItems={cartItems}
-              totalItems={totalItems}
-              totalPrice={totalPrice}
-              onUpdateQuantity={updateQuantity}
-              onRemoveFromCart={removeFromCart}
-              onSendWhatsApp={sendWhatsAppMessage}
-              side="bottom"
-              trigger={
-                <Button size="lg" className="w-full shadow-lg">
-                  Ver Carrito ({totalItems}) - ${totalPrice.toLocaleString()}
-                </Button>
-              }
-            />
-          </div>
-        )}
       </div>
     </section>
   );
