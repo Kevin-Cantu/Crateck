@@ -28,27 +28,26 @@ interface SolutionProps {
 
 const routeList: RouteProps[] = [
   { href: "/", label: "Inicio" },
-  { href: "/#proyectos", label: "Proyectos" },
+  { href: "/#proyectos-carousel", label: "Proyectos" },
   { href: "/#nosotros", label: "Nosotros" },
   { href: "/#contacto", label: "Contacto" },
-  { href: "/renta-de-equipo", label: "Renta de equipo" },
 ];
 
 const solutionsList: SolutionProps[] = [
   {
-    href: "/desarrollo-ingenieria",
-    label: "Desarrollo de ingeniería",
-    description: "Diseño, cálculo y documentación técnica",
-  },
-  {
     href: "/#obra-electrica",
     label: "Obra eléctrica",
-    description: "Instalaciones industriales BT/MT",
+    description: "Instalaciones industriales BT/MT/AT",
   },
   {
-    href: "/administracion-proyectos",
-    label: "Administración de proyectos",
-    description: "Planeación, control y supervisión",
+    href: "/#energia-solar",
+    label: "Energía solar",
+    description: "Sistemas fotovoltaicos a medida",
+  },
+  {
+    href: "/#obra-civil",
+    label: "Obra civil",
+    description: "Construcción y terracerías",
   },
 ];
 

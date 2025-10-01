@@ -116,8 +116,17 @@ export const ProyectosCarouselSection = () => {
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
 
-  const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
-  const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
+  const scrollPrev = useCallback(() => {
+    emblaApi && emblaApi.scrollPrev();
+    // Remover focus del botón después del clic
+    (document.activeElement as HTMLElement)?.blur();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    emblaApi && emblaApi.scrollNext();
+    // Remover focus del botón después del clic
+    (document.activeElement as HTMLElement)?.blur();
+  }, [emblaApi]);
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
@@ -134,26 +143,25 @@ export const ProyectosCarouselSection = () => {
   }, [emblaApi, onSelect]);
 
   // Calcular número de puntos basado en el viewport
-  const getDotsCount = () => {
-    const totalItems = proyectos.length;
-    // Móvil: 1 por página, Tablet: 2 por página, Desktop: 3 por página
-    if (typeof window !== 'undefined') {
-      if (window.innerWidth < 768) return totalItems; // móvil: 11 puntos
-      if (window.innerWidth < 1024) return Math.ceil(totalItems / 2); // tablet: 6 puntos
-      return Math.ceil(totalItems / 3); // desktop: 4 puntos
-    }
-    return Math.ceil(totalItems / 3); // default desktop
+  const getItemsPerPage = () => {
+    if (typeof window === "undefined") return 3; // valor por defecto
+    if (window.innerWidth < 768) return 1;
+    if (window.innerWidth < 1024) return 2;
+    return 3;
   };
-
-  const [dotsCount, setDotsCount] = useState(getDotsCount());
-
+  const [itemsPerPage, setItemsPerPage] = useState(getItemsPerPage());
+  const [dotsCount, setDotsCount] = useState(Math.ceil(proyectos.length / getItemsPerPage()));
+  
   useEffect(() => {
-    const handleResize = () => {
-      setDotsCount(getDotsCount());
+    const updateDotsCount = () => {
+      const perPage = getItemsPerPage();
+      setItemsPerPage(perPage); // guardar items por página
+      setDotsCount(Math.ceil(proyectos.length / perPage)); // actualizar dots
     };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+  
+    updateDotsCount(); // actualizar al montar
+    window.addEventListener("resize", updateDotsCount);
+    return () => window.removeEventListener("resize", updateDotsCount);
   }, []);
 
   return (
@@ -161,7 +169,7 @@ export const ProyectosCarouselSection = () => {
       id="proyectos-carousel"
       className="py-24 sm:py-32 bg-gradient-to-br from-slate-100 via-gray-100 to-slate-200 dark:from-slate-800 dark:via-slate-900 dark:to-gray-900"
     >
-      <div className="container">
+      <div className="container -mt-16">
         {/* Encabezado */}
         <div className="text-center mb-16">
           <Reveal as="div" delayMs={0}>
@@ -196,7 +204,8 @@ export const ProyectosCarouselSection = () => {
                 size="icon"
                 onClick={scrollPrev}
                 disabled={!canScrollPrev}
-                className="rounded-full"
+                className="rounded-full focus:ring-0 focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+                onMouseDown={(e) => e.preventDefault()}
               >
                 <ChevronLeft className="h-4 w-4" />
               </Button>
@@ -205,7 +214,8 @@ export const ProyectosCarouselSection = () => {
                 size="icon"
                 onClick={scrollNext}
                 disabled={!canScrollNext}
-                className="rounded-full"
+                className="rounded-full focus:ring-0 focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+                onMouseDown={(e) => e.preventDefault()}
               >
                 <ChevronRight className="h-4 w-4" />
               </Button>
@@ -216,7 +226,7 @@ export const ProyectosCarouselSection = () => {
               {Array.from({ length: dotsCount }).map((_, index) => (
                 <button
                   key={index}
-                  className={`w-2 h-2 rounded-full transition-colors ${
+                  className={`w-2 h-2 rounded-full transition-colors focus:outline-none ${
                     index === Math.floor(selectedIndex / (typeof window !== 'undefined' && window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3))
                       ? "bg-slate-800 dark:bg-slate-200"
                       : "bg-slate-300 dark:bg-slate-600"
@@ -224,6 +234,8 @@ export const ProyectosCarouselSection = () => {
                   onClick={() => {
                     const itemsPerPage = typeof window !== 'undefined' && window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
                     emblaApi?.scrollTo(index * itemsPerPage);
+                    // Remover focus después del clic
+                    (document.activeElement as HTMLElement)?.blur();
                   }}
                 />
               ))}

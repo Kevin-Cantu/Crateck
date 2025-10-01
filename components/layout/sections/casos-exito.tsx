@@ -47,7 +47,7 @@ export const CasosExitoSection = () => {
       aria-labelledby="casos-exito-title"
       className="py-24 sm:py-32 bg-gradient-to-br from-slate-50 via-gray-50 to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-gray-900"
     >
-      <div className="container">
+      <div className="container -mt-12">
         {/* Nuestros Clientes */}
         <div className="text-center mb-16">
           <Reveal as="div" delayMs={0}>
