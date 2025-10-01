@@ -85,7 +85,6 @@ export const CasosExitoSection = () => {
               fade
               innerClassName="gap-[4rem]"
               pauseOnHover
-              speed={35}
             >
               {clientes.map(({ logo, alt }) => (
                 <div key={alt} className="min-w-[160px] flex items-center justify-center">
