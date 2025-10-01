@@ -149,20 +149,23 @@ export const ProyectosCarouselSection = () => {
     if (window.innerWidth < 1024) return 2;
     return 3;
   };
-  const [itemsPerPage, setItemsPerPage] = useState(getItemsPerPage());
-  const [dotsCount, setDotsCount] = useState(Math.ceil(proyectos.length / getItemsPerPage()));
-  
-  useEffect(() => {
-    const updateDotsCount = () => {
-      const perPage = getItemsPerPage();
-      setItemsPerPage(perPage); // guardar items por página
-      setDotsCount(Math.ceil(proyectos.length / perPage)); // actualizar dots
-    };
-  
-    updateDotsCount(); // actualizar al montar
-    window.addEventListener("resize", updateDotsCount);
-    return () => window.removeEventListener("resize", updateDotsCount);
-  }, []);
+  const [itemsPerPage, setItemsPerPage] = useState(3); // valor seguro por defecto
+const [dotsCount, setDotsCount] = useState(Math.ceil(proyectos.length / 3));
+
+useEffect(() => {
+  const updateDotsCount = () => {
+    let perPage = 3; // valor por defecto
+    if (window.innerWidth < 768) perPage = 1;
+    else if (window.innerWidth < 1024) perPage = 2;
+
+    setItemsPerPage(perPage);
+    setDotsCount(Math.ceil(proyectos.length / perPage));
+  };
+
+  updateDotsCount();
+  window.addEventListener("resize", updateDotsCount);
+  return () => window.removeEventListener("resize", updateDotsCount);
+}, []);
 
   return (
     <section
