@@ -1,6 +1,6 @@
 import { ContactSection } from "@/components/layout/sections/contact";
 import { HeroSection } from "@/components/layout/sections/hero";
-import { ProjectsSection } from "@/components/layout/sections/projects";
+import { ProyectosCarouselSection } from "@/components/layout/sections/proyectos-carousel";
 import { AboutSection } from "@/components/layout/sections/about";
 import { ObraElectricaSection } from "@/components/layout/sections/obra-electrica";
 import { EnergiaSolarSection } from "@/components/layout/sections/energia-solar";
@@ -54,8 +54,8 @@ export default function Home() {
       {/* Casos de Éxito */}
       <CasosExitoSection />
 
-      {/* Proyectos */}
-      <ProjectsSection />
+      {/* Proyectos Carousel */}
+      <ProyectosCarouselSection />
 
       {/* Nosotros */}
       <AboutSection />
