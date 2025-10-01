@@ -149,12 +149,13 @@ export const ProyectosCarouselSection = () => {
     if (window.innerWidth < 1024) return 2;
     return 3;
   };
-  const [itemsPerPage, setItemsPerPage] = useState(3); // valor seguro por defecto
+  const [mounted, setMounted] = useState(false);
+const [itemsPerPage, setItemsPerPage] = useState(3);
 const [dotsCount, setDotsCount] = useState(Math.ceil(proyectos.length / 3));
 
 useEffect(() => {
   const updateDotsCount = () => {
-    let perPage = 3; // valor por defecto
+    let perPage = 3;
     if (window.innerWidth < 768) perPage = 1;
     else if (window.innerWidth < 1024) perPage = 2;
 
@@ -164,6 +165,7 @@ useEffect(() => {
 
   updateDotsCount();
   window.addEventListener("resize", updateDotsCount);
+  setMounted(true);
   return () => window.removeEventListener("resize", updateDotsCount);
 }, []);
 
@@ -225,24 +227,24 @@ useEffect(() => {
             </div>
 
             {/* Indicadores responsive */}
-            <div className="flex gap-2">
-              {Array.from({ length: dotsCount }).map((_, index) => (
-                <button
-                  key={index}
-                  className={`w-2 h-2 rounded-full transition-colors focus:outline-none ${
-                    index === Math.floor(selectedIndex / (typeof window !== 'undefined' && window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3))
-                      ? "bg-slate-800 dark:bg-slate-200"
-                      : "bg-slate-300 dark:bg-slate-600"
-                  }`}
-                  onClick={() => {
-                    const itemsPerPage = typeof window !== 'undefined' && window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
-                    emblaApi?.scrollTo(index * itemsPerPage);
-                    // Remover focus después del clic
-                    (document.activeElement as HTMLElement)?.blur();
-                  }}
-                />
-              ))}
-            </div>
+{mounted && (
+  <div className="flex gap-2">
+    {Array.from({ length: dotsCount }).map((_, index) => (
+      <button
+        key={index}
+        className={`w-2 h-2 rounded-full transition-colors focus:outline-none ${
+          index === Math.floor(selectedIndex / itemsPerPage)
+            ? "bg-slate-800 dark:bg-slate-200"
+            : "bg-slate-300 dark:bg-slate-600"
+        }`}
+        onClick={() => {
+          emblaApi?.scrollTo(index * itemsPerPage);
+          (document.activeElement as HTMLElement)?.blur();
+        }}
+      />
+    ))}
+  </div>
+)}
           </div>
 
           {/* Carousel container */}
