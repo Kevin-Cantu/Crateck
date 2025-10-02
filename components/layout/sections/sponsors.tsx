@@ -10,7 +10,7 @@ interface Sponsor {
   alt: string;
 }
 
-// No cambiamos tamaños ni comportamiento del carrusel; solo estilizamos la sección envolvente
+// No cambiamos el comportamiento del carrusel; solo tamaños y separación
 const sponsors: Sponsor[] = [
   { logo: "/assets/Kinedu.png", alt: "Kinedu" },
   { logo: "/assets/gruposalinas.png", alt: "Grupo Salinas" },
@@ -29,7 +29,7 @@ export const SponsorsSection = () => {
       aria-labelledby="sponsors-title"
       className="relative isolate overflow-hidden py-12"
     >
-      {/* Accentos de fondo (coherentes con otras secciones) */}
+      {/* Acentos de fondo (coherentes con otras secciones) */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-100/50 to-transparent dark:via-white/5" />
         <div className="absolute -top-12 -left-10 h-48 w-48 rounded-full bg-primary-500/5 blur-2xl" />
@@ -61,17 +61,13 @@ export const SponsorsSection = () => {
           </Reveal>
         </div>
 
-        {/* Carrusel al aire, sin card */}
-        <Reveal
-          as="div"
-          delayMs={160}
-          className="relative mx-auto mt-8 max-w-6xl"
-        >
+        {/* Carrusel de logos */}
+        <Reveal as="div" delayMs={160} className="relative mx-auto mt-8 max-w-6xl">
           <div role="region" aria-label="Patrocinadores y clientes">
             <Marquee
-              className="gap-[3rem]"
+              className="gap-6 sm:gap-8"
               fade
-              innerClassName="gap-[3rem]"
+              innerClassName="gap-6 sm:gap-8"
               pauseOnHover
             >
               {sponsors.map(({ logo, alt }) => (
@@ -79,8 +75,8 @@ export const SponsorsSection = () => {
                   <Image
                     src={logo}
                     alt={alt}
-                    width={120}
-                    height={60}
+                    width={160}
+                    height={80}
                     className="object-contain grayscale hover:grayscale-0 transition"
                   />
                 </div>

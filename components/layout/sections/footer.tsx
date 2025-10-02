@@ -10,16 +10,15 @@ export const FooterSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex font-bold items-center mb-4">
-              <Image
-                src="/crateclogo-.png"
-                alt="Logo Crateck"
-                width={36}
-                height={36}
-                className="mr-3 h-9 w-9 object-contain"
-                priority
-              />
-              <h3 className="text-2xl">Crateck</h3>
+            <Link href="/" className="flex font-bold items-center -mt-8 -ml-8">
+                  <Image
+                        src="/cratecklogo.png"
+                        alt="Logo Crateck"
+                        width={200} // le damos una resolución grande
+                        height={300}
+                        className="object-left"
+                        priority
+                      />
             </Link>
             <p className="text-sm text-muted-foreground mb-4 max-w-xs">
               Soluciones integrales de ingeniería, obra civil y eléctrica para la industria. 

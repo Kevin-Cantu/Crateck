@@ -22,7 +22,7 @@ export const ObraElectricaSection = () => {
     <section id="obra-electrica" className="py-24 sm:py-32 bg-gradient-to-br from-slate-50 via-slate-100 to-blue-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
       <div className="container">
         {/* Encabezado principal */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 -mt-12">
           <h2 className="text-lg text-slate-600 dark:text-slate-400 mb-2 tracking-wider font-medium uppercase">
             Desarrollo de Obra Eléctrica
           </h2>

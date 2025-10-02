@@ -30,7 +30,7 @@ export const HeroSection = () => {
   return (
     <section
       id="inicio"
-      className="relative w-full h-screen flex overflow-hidden -mt-14"
+      className="relative w-full h-screen flex overflow-hidden -mt-16"
     >
       {/* Imagen de fondo */}
       <Image

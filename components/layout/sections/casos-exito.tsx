@@ -47,7 +47,7 @@ export const CasosExitoSection = () => {
       aria-labelledby="casos-exito-title"
       className="py-24 sm:py-32 bg-gradient-to-br from-slate-50 via-gray-50 to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-gray-900"
     >
-      <div className="container -mt-12">
+      <div className="container -mt-20 -mb-20">
         {/* Nuestros Clientes */}
         <div className="text-center mb-16">
           <Reveal as="div" delayMs={0}>
@@ -87,11 +87,11 @@ export const CasosExitoSection = () => {
               pauseOnHover
             >
               {clientes.map(({ logo, alt }) => (
-                <div key={alt} className="min-w-[160px] flex items-center justify-center">
+                <div key={alt} className="min-w-[30px] flex items-center justify-center ">
                   <img
                     src={logo}
                     alt={alt}
-                    className="max-h-16 max-w-36 object-contain filter hover:brightness-110 transition-all duration-300"
+                    className="max-h-24 max-w-30 object-contain filter hover:brightness-110 transition-all duration-300"
                     style={{ 
                       display: 'block',
                       opacity: 1,

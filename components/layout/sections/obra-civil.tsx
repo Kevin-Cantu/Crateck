@@ -25,7 +25,7 @@ export const ObraCivilSection = () => {
     <section id="obra-civil" className="py-24 sm:py-32 bg-gradient-to-br from-stone-100 via-slate-100 to-gray-100 dark:from-slate-800 dark:via-slate-900 dark:to-gray-900">
       <div className="container">
         {/* Encabezado principal */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 -mt-12">
           <h2 className="text-lg text-stone-600 dark:text-stone-400 mb-2 tracking-wider font-medium uppercase">
             Obra Civil
           </h2>
