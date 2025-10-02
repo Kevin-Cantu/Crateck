@@ -122,21 +122,6 @@ export const AboutSection = () => {
           </CardContent>
         </Card>
 
-        {/* Badges de certificación */}
-        <div className="text-center mt-12">
-          <p className="text-slate-500 dark:text-slate-400 mb-4">Certificaciones y reconocimientos</p>
-          <div className="flex justify-center flex-wrap gap-3">
-            <Badge variant="secondary" className="text-sm px-4 py-2">
-              Equipo de expertos
-            </Badge>
-            <Badge variant="secondary" className="text-sm px-4 py-2">
-              Enfoque personalizado
-            </Badge>
-            <Badge variant="secondary" className="text-sm px-4 py-2">
-              Resultados medibles
-            </Badge>
-          </div>
-        </div>
       </div>
     </section>
   );

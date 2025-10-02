@@ -67,18 +67,16 @@ export const HeroSection = () => {
             </h1>
             
             {/* Marca principal */}
-            <div className="flex items-center gap-3 text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white drop-shadow-2xl mb-6">
-              <span>Grupo</span>
-              <Image
-                src="/crateclogo-.png"
-                alt="Logo Crateck"
-                width={120}
-                height={50}
-                className="inline-block h-8 md:h-12 lg:h-16 xl:h-20 w-auto object-contain"
-                priority
-              />
-              <span>Crateck</span>
-            </div>
+            <div className="flex items-start -mb-24 -mt-24 text-white drop-shadow-2xl">
+  <Image
+    src="/cratecklogo2.png"
+    alt="Logo Crateck"
+    width={800}
+    height={400}
+    className=" w-auto object-contain -ml-24"
+    priority
+  />
+</div>
           </div>
 
           {/* Descripción */}
