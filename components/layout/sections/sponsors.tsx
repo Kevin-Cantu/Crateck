@@ -10,26 +10,28 @@ interface Sponsor {
   alt: string;
 }
 
-// No cambiamos el comportamiento del carrusel; solo tamaños y separación
+// Usar logos disponibles en public/
 const sponsors: Sponsor[] = [
-  { logo: "/assets/Kinedu.png", alt: "Kinedu" },
-  { logo: "/assets/gruposalinas.png", alt: "Grupo Salinas" },
-  { logo: "/assets/axity.png", alt: "Axity" },
-  { logo: "/assets/once.webp", alt: "Once" },
-  { logo: "/assets/vonman.png", alt: "Vonman" },
-  { logo: "/assets/crateclogo.png", alt: "Cratec" },
-  { logo: "/assets/chocodrop.png", alt: "Chocodrop" },
-  { logo: "/assets/upax.webp", alt: "Upax" },
+  { logo: "/cinepolis.png", alt: "Cinépolis" },
+  { logo: "/microsoft.png", alt: "Microsoft" },
+  { logo: "/lafuente.jpeg", alt: "La Fuente" },
+  { logo: "/grupogp.png", alt: "Grupo GP" },
+  { logo: "/heineken.png", alt: "Heineken" },
+  { logo: "/qualitas.svg", alt: "Qualitas" },
+  { logo: "/ruhrpumpen.png", alt: "Ruhrpumpen" },
+  { logo: "/spirax sarco.png", alt: "Spirax Sarco" },
+  { logo: "/semsa.jpg", alt: "SemsA" },
+  { logo: "/stiva.jpg", alt: "Stiva" },
+  { logo: "/sigma.png", alt: "Sigma" },
+  { logo: "/citadel.png", alt: "Citadel" },
+  { logo: "/cummins.png", alt: "Cummins" },
+  { logo: "/eleven.png", alt: "Eleven" },
 ];
 
 export const SponsorsSection = () => {
   return (
-    <section
-      id="sponsors"
-      aria-labelledby="sponsors-title"
-      className="relative isolate overflow-hidden py-12"
-    >
-      {/* Acentos de fondo (coherentes con otras secciones) */}
+    <section id="sponsors" aria-labelledby="sponsors-title" className="relative isolate overflow-hidden py-12">
+      {/* Acentos de fondo */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-100/50 to-transparent dark:via-white/5" />
         <div className="absolute -top-12 -left-10 h-48 w-48 rounded-full bg-primary-500/5 blur-2xl" />
@@ -45,12 +47,7 @@ export const SponsorsSection = () => {
             </div>
           </Reveal>
 
-          <Reveal
-            as="h2"
-            delayMs={60}
-            id="sponsors-title"
-            className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight"
-          >
+          <Reveal as="h2" delayMs={60} id="sponsors-title" className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
             <span className="bg-gradient-to-r from-slate-900 to-slate-600 dark:from-slate-100 dark:to-slate-400 bg-clip-text text-transparent">
               Marcas que confían en nosotros
             </span>
@@ -61,24 +58,37 @@ export const SponsorsSection = () => {
           </Reveal>
         </div>
 
-        {/* Carrusel de logos */}
-        <Reveal as="div" delayMs={160} className="relative mx-auto mt-8 max-w-6xl">
-          <div role="region" aria-label="Patrocinadores y clientes">
-            <Marquee
-              className="gap-6 sm:gap-8"
-              fade
-              innerClassName="gap-6 sm:gap-8"
-              pauseOnHover
-            >
+        {/* Mobile: doble carrusel en sentidos opuestos */}
+        <Reveal as="div" delayMs={160} className="relative mx-auto mt-8 max-w-6xl md:hidden">
+          <div role="region" aria-label="Patrocinadores y clientes - móvil" className="space-y-4">
+            {/* Superior (dirección normal) */}
+            <Marquee className="gap-4" innerClassName="gap-4" pauseOnHover>
               {sponsors.map(({ logo, alt }) => (
-                <div key={alt} className="flex items-center">
-                  <Image
-                    src={logo}
-                    alt={alt}
-                    width={160}
-                    height={80}
-                    className="object-contain grayscale hover:grayscale-0 transition"
-                  />
+                <div key={`m1-${alt}`} className="flex items-center">
+                  <Image src={logo} alt={alt} width={140} height={70} className="object-contain grayscale hover:grayscale-0 transition" />
+                </div>
+              ))}
+            </Marquee>
+
+            {/* Inferior (dirección opuesta) */}
+            <Marquee className="gap-4" innerClassName="gap-4" pauseOnHover reverse>
+              {sponsors.map(({ logo, alt }) => (
+                <div key={`m2-${alt}`} className="flex items-center">
+                  {/* Usar <img> simple para evitar lazy-loading en móviles que podría ocultar */}
+                  <img src={logo} alt={alt} width={140} height={70} className="object-contain grayscale hover:grayscale-0 transition" />
+                </div>
+              ))}
+            </Marquee>
+          </div>
+        </Reveal>
+
+        {/* Desktop: un solo carrusel */}
+        <Reveal as="div" delayMs={160} className="relative mx-auto mt-8 max-w-6xl hidden md:block">
+          <div role="region" aria-label="Patrocinadores y clientes - desktop">
+            <Marquee className="gap-8" innerClassName="gap-8" pauseOnHover>
+              {sponsors.map(({ logo, alt }) => (
+                <div key={`d-${alt}`} className="flex items-center">
+                  <Image src={logo} alt={alt} width={160} height={80} className="object-contain grayscale hover:grayscale-0 transition" />
                 </div>
               ))}
             </Marquee>

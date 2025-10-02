@@ -44,12 +44,12 @@ export const ObraCivilSection = () => {
             SOLUCIONES
           </h4>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-8 max-w-6xl mx-auto">
             {solutions.map(({ icon, title, description }) => (
               <Card key={title} className="group h-full bg-white/95 dark:bg-slate-800/95 backdrop-blur-sm border-stone-200 dark:border-slate-700 hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
                 <CardHeader className="text-center pb-6">
                   <div className="relative mb-6 mx-auto w-fit">
-                    <div className="bg-gradient-to-br from-stone-200 to-gray-200 dark:from-slate-700 dark:to-gray-700 p-5 rounded-2xl group-hover:from-stone-300 group-hover:to-gray-300 dark:group-hover:from-slate-600 dark:group-hover:to-gray-600 transition-all duration-500">
+                    <div className="bg-gradient-to-br  from-stone-200 to-gray-200 dark:from-slate-700 dark:to-gray-700 p-5 rounded-2xl group-hover:from-stone-300 group-hover:to-gray-300 dark:group-hover:from-slate-600 dark:group-hover:to-gray-600 transition-all duration-500">
                       <Icon
                         name={icon as keyof typeof icons}
                         size={36}

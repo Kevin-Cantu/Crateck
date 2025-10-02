@@ -9,7 +9,7 @@ interface Cliente {
   alt: string;
 }
 
-// Logos corregidos con rutas exactas
+// Logos disponibles en public/
 const clientes: Cliente[] = [
   { logo: "/acostaverde.png", alt: "Acosta Verde" },
   { logo: "/byp.jpeg", alt: "BYP" },
@@ -41,6 +41,11 @@ const clientes: Cliente[] = [
 ];
 
 export const CasosExitoSection = () => {
+  // Handler para bloquear clics/taps en los logos
+  const blockPointer = (e: React.PointerEvent<HTMLDivElement>) => {
+    e.preventDefault();
+  };
+
   return (
     <section
       id="casos-exito"
@@ -65,7 +70,8 @@ export const CasosExitoSection = () => {
             Empresas que confían en nosotros
           </Reveal>
 
-          <Reveal as="p" delayMs={120}>
+          {/* Evitar p dentro de p para no romper hidratación */}
+          <Reveal as="div" delayMs={120}>
             <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">
               Trabajamos con empresas líderes de diversos sectores, brindando soluciones de 
               ingeniería y construcción que superan expectativas.
@@ -73,30 +79,52 @@ export const CasosExitoSection = () => {
           </Reveal>
         </div>
 
-        {/* Carrusel de clientes */}
-        <Reveal
-          as="div"
-          delayMs={180}
-          className="relative mx-auto max-w-7xl"
-        >
-          <div role="region" aria-label="Nuestros clientes">
-            <Marquee
-              className="gap-[4rem]"
-              fade
-              innerClassName="gap-[4rem]"
-              pauseOnHover
-            >
+        {/* Móvil: doble carrusel en sentidos opuestos, sin click */}
+        <Reveal as="div" delayMs={180} className="relative mx-auto max-w-7xl md:hidden space-y-4">
+          <div role="region" aria-label="Nuestros clientes (móvil fila 1)">
+            <Marquee className="gap-4" innerClassName="gap-4">
               {clientes.map(({ logo, alt }) => (
-                <div key={alt} className="min-w-[30px] flex items-center justify-center ">
+                <div key={`m1-${alt}`} className="min-w-[30px] flex items-center justify-center" onPointerDown={blockPointer}>
                   <img
                     src={logo}
                     alt={alt}
-                    className="max-h-24 max-w-30 object-contain filter hover:brightness-110 transition-all duration-300"
-                    style={{ 
-                      display: 'block',
-                      opacity: 1,
-                      visibility: 'visible'
-                    }}
+                    draggable={false}
+                    className="max-h-24 max-w-30 select-none object-contain filter hover:brightness-110 transition-all duration-300"
+                    style={{ display: 'block', opacity: 1, visibility: 'visible' }}
+                  />
+                </div>
+              ))}
+            </Marquee>
+          </div>
+          <div role="region" aria-label="Nuestros clientes (móvil fila 2)">
+            <Marquee className="gap-4" innerClassName="gap-4" reverse>
+              {clientes.map(({ logo, alt }) => (
+                <div key={`m2-${alt}`} className="min-w-[30px] flex items-center justify-center" onPointerDown={blockPointer}>
+                  <img
+                    src={logo}
+                    alt={alt}
+                    draggable={false}
+                    className="max-h-24 max-w-30 select-none object-contain filter hover:brightness-110 transition-all duration-300"
+                    style={{ display: 'block', opacity: 1, visibility: 'visible' }}
+                  />
+                </div>
+              ))}
+            </Marquee>
+          </div>
+        </Reveal>
+
+        {/* Desktop: un solo carrusel, sin click */}
+        <Reveal as="div" delayMs={180} className="relative mx-auto max-w-7xl hidden md:block">
+          <div role="region" aria-label="Nuestros clientes">
+            <Marquee className="gap-[4rem]" innerClassName="gap-[4rem]">
+              {clientes.map(({ logo, alt }) => (
+                <div key={`d-${alt}`} className="min-w-[30px] flex items-center justify-center" onPointerDown={blockPointer}>
+                  <img
+                    src={logo}
+                    alt={alt}
+                    draggable={false}
+                    className="max-h-24 max-w-30 select-none object-contain filter hover:brightness-110 transition-all duration-300"
+                    style={{ display: 'block', opacity: 1, visibility: 'visible' }}
                   />
                 </div>
               ))}

@@ -73,9 +73,9 @@ export const ContactSection = () => {
     <section id="contacto" className="py-16 md:py-20 bg-gradient-to-br from-muted/20 to-background">
       <div className="container">
         <div className="text-center mb-8">
-          <h2 className="text-sm text-primary mb-1 tracking-wider font-medium">Contacto</h2>
-          <h3 className="text-2xl md:text-3xl font-bold mb-2">Agenda tu asesoría gratuita</h3>
-          <p className="text-base text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="text-lg text-primary mb-1 tracking-wider font-medium">Contacto</h2>
+          <h3 className="text-2xl md:text-4xl font-bold mb-2">Agenda tu asesoría gratuita</h3>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Cuéntanos sobre tu proyecto. Diseñamos e implementamos soluciones a la medida.
           </p>
         </div>

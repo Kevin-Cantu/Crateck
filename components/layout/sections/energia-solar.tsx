@@ -67,12 +67,12 @@ export const EnergiaSolarSection = () => {
                       />
                     </div>
                   </div>
-                  <CardTitle className="text-lg leading-tight text-slate-800 dark:text-slate-200 px-2">
+                  <CardTitle className="text-xl leading-tight text-slate-800 dark:text-slate-200 px-2">
                     {title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="text-center px-4">
-                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+                  <p className="text-slate-600 dark:text-slate-300  text-lg leading-relaxed">
                     {description}
                   </p>
                 </CardContent>

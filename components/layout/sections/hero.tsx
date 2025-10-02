@@ -67,13 +67,13 @@ export const HeroSection = () => {
             </h1>
             
             {/* Marca principal */}
-            <div className="flex items-start -mb-24 -mt-24 text-white drop-shadow-2xl">
+            <div className="flex items-start sm:-mb-24 sm:-mt-24 sm:-ml-0 -ml-12 -mt-12 -mb-10 text-white drop-shadow-2xl">
   <Image
     src="/cratecklogo2.png"
     alt="Logo Crateck"
     width={800}
     height={400}
-    className=" w-auto object-contain -ml-24"
+    className=" w-auto object-contain sm:-ml-24"
     priority
   />
 </div>
