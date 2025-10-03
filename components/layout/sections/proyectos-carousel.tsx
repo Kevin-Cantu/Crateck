@@ -65,7 +65,7 @@ export const ProyectosCarouselSection = () => {
   }, [emblaApi]);
 
   return (
-    <section id="proyectos-carousel" className="py-24 sm:py-32 bg-gradient-to-br from-slate-100 via-gray-100 to-slate-200 dark:from-slate-800 dark:via-slate-900 dark:to-gray-900">
+    <section id="proyectos-carousel" className="py-24 sm:py-32  scroll-mt-20 bg-gradient-to-br from-slate-100 via-gray-100 to-slate-200 dark:from-slate-800 dark:via-slate-900 dark:to-gray-900">
       <div className="container -mt-16">
         {/* Encabezado */}
         <div className="text-center mb-16">

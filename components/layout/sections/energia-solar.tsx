@@ -32,7 +32,7 @@ export const EnergiaSolarSection = () => {
   ];
 
   return (
-    <section id="energia-solar" className="py-24 sm:py-32 bg-gradient-to-br from-amber-50/50 via-orange-50/30 to-yellow-50/50 dark:from-slate-900 dark:via-orange-950/20 dark:to-slate-800">
+    <section id="energia-solar" className="py-24 scroll-mt-20  sm:py-32 bg-gradient-to-br from-amber-50/50 via-orange-50/30 to-yellow-50/50 dark:from-slate-900 dark:via-orange-950/20 dark:to-slate-800">
       <div className="container ">
         {/* Encabezado principal */}
         <div className="text-center mb-16 -mt-12">

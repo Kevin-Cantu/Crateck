@@ -19,7 +19,7 @@ export const ObraElectricaSection = () => {
   ];
 
   return (
-    <section id="obra-electrica" className="py-24 sm:py-32 bg-gradient-to-br from-slate-50 via-slate-100 to-blue-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+    <section id="obra-electrica" className="py-24 scroll-mt-20  sm:py-32 bg-gradient-to-br from-slate-50 via-slate-100 to-blue-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
       <div className="container">
         {/* Encabezado principal */}
         <div className="text-center mb-16 -mt-12">

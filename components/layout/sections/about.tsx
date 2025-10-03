@@ -44,7 +44,7 @@ export const AboutSection = () => {
   ];
 
   return (
-    <section id="nosotros" className="py-24  -mt-12 sm:py-32 bg-gradient-to-br from-slate-50 via-gray-50 to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-gray-900">
+    <section id="nosotros" className="py-24 scroll-mt-20 -mt-12 sm:py-32 bg-gradient-to-br from-slate-50 via-gray-50 to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-gray-900">
       <div className="container">
         
         {/* Presentación principal */}

@@ -28,6 +28,7 @@ interface SolutionProps {
 
 const routeList: RouteProps[] = [
   { href: "/", label: "Inicio" },
+  { href: "/#casos-exito", label: "Nuestros clientes" },
   { href: "/#proyectos-carousel", label: "Proyectos" },
   { href: "/#nosotros", label: "Nosotros" },
   { href: "/#contacto", label: "Contacto" },
@@ -53,13 +54,14 @@ const solutionsList: SolutionProps[] = [
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
+
   return (
     <header className="shadow-inner bg-opacity-15 w-[90%] md:w-[70%] lg:w-[75%] lg:max-w-screen-xl top-5 mx-auto sticky border border-secondary z-40 rounded-2xl flex justify-between items-center p-2 bg-card h-16">
       <Link href="/" className="font-bold text-lg flex items-center">
         <Image
           src="/cratecklogo.png"
           alt="Logo Crateck"
-          width={200} // le damos una resolución grande
+          width={200}
           height={300}
           className="object-left"
           priority
@@ -88,7 +90,7 @@ export const Navbar = () => {
                       <Image
                         src="/cratecklogo.png"
                         alt="Logo Crateck"
-                        width={200} // le damos una resolución grande
+                        width={200}
                         height={300}
                         className="object-contain"
                         priority
@@ -99,17 +101,25 @@ export const Navbar = () => {
               </SheetHeader>
 
               <div className="flex flex-col gap-2">
-                {routeList.map(({ href, label }) => (
-                  <Button
-                    key={href}
-                    onClick={() => setIsOpen(false)}
-                    asChild
-                    variant="ghost"
-                    className="justify-start text-base"
-                  >
-                    <Link href={href}>{label}</Link>
-                  </Button>
-                ))}
+                {/* Inicio */}
+                <Button
+                  onClick={() => setIsOpen(false)}
+                  asChild
+                  variant="ghost"
+                  className="justify-start text-base"
+                >
+                  <Link href="/">Inicio</Link>
+                </Button>
+
+                {/* Nuestros clientes */}
+                <Button
+                  onClick={() => setIsOpen(false)}
+                  asChild
+                  variant="ghost"
+                  className="justify-start text-base"
+                >
+                  <Link href="/#casos-exito">Nuestros clientes</Link>
+                </Button>
 
                 {/* Soluciones en móvil */}
                 <div className="flex flex-col gap-1">
@@ -128,6 +138,36 @@ export const Navbar = () => {
                     </Button>
                   ))}
                 </div>
+
+                {/* Proyectos */}
+                <Button
+                  onClick={() => setIsOpen(false)}
+                  asChild
+                  variant="ghost"
+                  className="justify-start text-base"
+                >
+                  <Link href="/#proyectos-carousel">Proyectos</Link>
+                </Button>
+
+                {/* Nosotros */}
+                <Button
+                  onClick={() => setIsOpen(false)}
+                  asChild
+                  variant="ghost"
+                  className="justify-start text-base"
+                >
+                  <Link href="/#nosotros">Nosotros</Link>
+                </Button>
+
+                {/* Contacto */}
+                <Button
+                  onClick={() => setIsOpen(false)}
+                  asChild
+                  variant="ghost"
+                  className="justify-start text-base"
+                >
+                  <Link href="/#contacto">Contacto</Link>
+                </Button>
               </div>
             </div>
 
@@ -141,17 +181,23 @@ export const Navbar = () => {
 
       {/* Desktop */}
       <div className="hidden lg:flex items-center mx-auto space-x-1">
-        {routeList.map(({ href, label }) => (
-          <Link
-            key={href}
-            href={href}
-            className="text-base px-4 py-2 hover:bg-accent hover:text-accent-foreground rounded-md transition-colors"
-          >
-            {label}
-          </Link>
-        ))}
+        {/* Inicio */}
+        <Link
+          href="/"
+          className="text-base px-4 py-2 hover:bg-accent hover:text-accent-foreground rounded-md transition-colors"
+        >
+          Inicio
+        </Link>
 
-        {/* Dropdown de Soluciones */}
+        {/* Nuestros clientes */}
+        <Link
+          href="/#casos-exito"
+          className="text-base px-4 py-2 hover:bg-accent hover:text-accent-foreground rounded-md transition-colors"
+        >
+          Nuestros clientes
+        </Link>
+
+        {/* Soluciones (dropdown) */}
         <div className="relative group">
           <button className="text-base px-4 py-2 hover:bg-accent hover:text-accent-foreground rounded-md transition-colors flex items-center">
             Soluciones
@@ -190,6 +236,30 @@ export const Navbar = () => {
             </div>
           </div>
         </div>
+
+        {/* Proyectos */}
+        <Link
+          href="/#proyectos-carousel"
+          className="text-base px-4 py-2 hover:bg-accent hover:text-accent-foreground rounded-md transition-colors"
+        >
+          Proyectos
+        </Link>
+
+        {/* Nosotros */}
+        <Link
+          href="/#nosotros"
+          className="text-base px-4 py-2 hover:bg-accent hover:text-accent-foreground rounded-md transition-colors"
+        >
+          Nosotros
+        </Link>
+
+        {/* Contacto */}
+        <Link
+          href="/#contacto"
+          className="text-base px-4 py-2 hover:bg-accent hover:text-accent-foreground rounded-md transition-colors"
+        >
+          Contacto
+        </Link>
       </div>
 
       <div className="hidden lg:flex">

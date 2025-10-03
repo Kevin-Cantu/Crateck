@@ -70,7 +70,7 @@ export const ContactSection = () => {
   ];
 
   return (
-    <section id="contacto" className="py-16 md:py-20 bg-gradient-to-br from-muted/20 to-background">
+    <section id="contacto" className="py-16 scroll-mt-20  md:py-20 bg-gradient-to-br from-muted/20 to-background">
       <div className="container">
         <div className="text-center mb-8">
           <h2 className="text-lg text-primary mb-1 tracking-wider font-medium">Contacto</h2>

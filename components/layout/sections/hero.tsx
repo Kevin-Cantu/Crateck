@@ -51,12 +51,7 @@ export const HeroSection = () => {
         <div className="flex-1 flex flex-col justify-center px-6 lg:px-12 xl:px-16 py-8">
           
           {/* Badge de calidad */}
-          <div className={`transform transition-all duration-700 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full text-primary-foreground text-sm font-medium mb-6">
-              <Award className="w-4 h-4" />
-              Líder en Soluciones de Ingeniería
-            </div>
-          </div>
+          
 
           {/* Título principal */}
           <div className={`transform transition-all duration-700 delay-100 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
