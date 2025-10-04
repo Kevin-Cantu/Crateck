@@ -41,6 +41,7 @@ export default function Home() {
     <>
       {/* Inicio */}
       <HeroSection />
+      <CasosExitoSection />
 
       {/* Obra Eléctrica */}
       <ObraElectricaSection />
@@ -52,7 +53,6 @@ export default function Home() {
       <ObraCivilSection />
 
       {/* Casos de Éxito */}
-      <CasosExitoSection />
 
       {/* Proyectos Carousel */}
       <ProyectosCarouselSection />
