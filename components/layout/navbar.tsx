@@ -220,11 +220,11 @@ export const Navbar = () => {
           <div className="absolute top-full left-0 mt-1 w-[280px] bg-popover border rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
             <div className="flex flex-col p-2">
               {solutionsList.map(({ href, label, description }) => (
-                <Link
-                  key={href}
-                  href={href}
-                  className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                >
+              <Link
+              key={href}
+              href={href}
+              className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent/30 hover:text-foreground focus:bg-accent/30 focus:text-foreground"
+            >
                   <div className="text-sm font-medium leading-none">
                     {label}
                   </div>

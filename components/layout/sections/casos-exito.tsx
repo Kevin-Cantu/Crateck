@@ -114,7 +114,7 @@ export const CasosExitoSection = () => {
         </Reveal>
 
         {/* Desktop: un solo carrusel, sin click */}
-        <Reveal as="div" delayMs={180} className="relative mx-auto max-w-7xl hidden md:block">
+        <Reveal as="div" delayMs={180} className="relative mx-auto w-full -ml-56 md:w-[133%] hidden md:block ">
           <div role="region" aria-label="Nuestros clientes">
             <Marquee className="gap-[4rem]" innerClassName="gap-[4rem]">
               {clientes.map(({ logo, alt }) => (

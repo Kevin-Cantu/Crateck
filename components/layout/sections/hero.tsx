@@ -20,11 +20,11 @@ export const HeroSection = () => {
   ];
 
   const services = [
-    "Instalaciones Eléctricas BT/MT",
-    "Subestaciones Industriales", 
-    "Obra Civil y Terracerías",
-    "Alumbrado Industrial",
-    "Administración de Proyectos"
+    "Desarollo de ingenieria",
+    "Construccion de obra especializada", 
+    "Instalacion y construccion especializada",
+    "Analisis de rentabilidad",
+    "Monitoreo, Mantenimiento y operacion"
   ];
 
   return (
@@ -54,7 +54,7 @@ export const HeroSection = () => {
           
 
           {/* Título principal */}
-          <div className={`transform transition-all duration-700 delay-100 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
+          <div className={`transform transition-all duration-700   delay-100 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
             <h1 className="text-xl md:text-2xl lg:text-3xl font-semibold text-gray-200/90 tracking-wide mb-4">
               <span className="bg-gradient-to-r from-primary via-primary/80 to-accent text-transparent bg-clip-text">
                 Proyectos de Ingeniería
@@ -62,7 +62,7 @@ export const HeroSection = () => {
             </h1>
             
             {/* Marca principal */}
-            <div className="flex items-start sm:-mb-24 sm:-mt-24 sm:-ml-0 -ml-12 -mt-12 -mb-10 text-white drop-shadow-2xl">
+            <div className="flex items-start sm:-mb-24 sm:-mt-24 sm:-ml-0 -ml-12 -mt-1  text-white drop-shadow-2xl">
   <Image
     src="/cratecklogo2.png"
     alt="Logo Crateck"
@@ -73,16 +73,15 @@ export const HeroSection = () => {
   />
 </div>
           </div>
-
           {/* Descripción */}
-          <div className={`transform transition-all duration-700 delay-200 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
+          <div className={`transform transition-all mt-8 sm:mt-0 duration-700 delay-200 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
             <p className="text-lg md:text-xl lg:text-2xl text-white font-medium mb-3 leading-tight">
               Construimos proyectos que generan{" "}
               <span className="text-primary font-semibold">valor</span>,{" "}
               <span className="text-accent font-semibold">seguridad</span> y{" "}
               <span className="text-primary font-semibold">crecimiento</span>.
             </p>
-            <p className="text-base md:text-lg text-gray-300/90 mb-6 leading-relaxed max-w-2xl">
+            <p className="text-base md:text-lg text-gray-300/90 mb-6 leading-relaxed max-w-2xl mt-12">
               Desarrollo integral de ingeniería, obra civil y eléctrica. Especialistas en instalaciones 
               BT/MT, subestaciones, alumbrado industrial y administración de proyectos.
             </p>
@@ -94,7 +93,7 @@ export const HeroSection = () => {
           </div>
 
           {/* Botones */}
-          <div className={`transform transition-all duration-700 delay-400 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
+          <div className={`transform transition-all  sm:-mt-0  mt-8 duration-700 delay-400 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
             <div className="flex flex-col sm:flex-row items-start gap-4 mb-6">
               <a href="/#contacto">
                 <Button className="group px-6 py-4 text-base font-semibold bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-primary/25">
@@ -151,10 +150,7 @@ export const HeroSection = () => {
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Indicador de scroll */}
-     
+      </div>     
     </section>
   );
 };
