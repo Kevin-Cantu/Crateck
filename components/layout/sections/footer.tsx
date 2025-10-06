@@ -33,7 +33,7 @@ export const FooterSection = () => {
               </div>
               <div className="flex items-center gap-2 text-muted-foreground">
                 <Phone className="w-4 h-4 text-primary" />
-                <span>+52 (xxx) xxx-xxxx</span>
+                <span>+52 (81)1603-8857</span>
               </div>
               <div className="flex items-center gap-2 text-muted-foreground">
                 <MapPin className="w-4 h-4 text-primary" />
@@ -95,31 +95,11 @@ export const FooterSection = () => {
               </li>
             </ul>
             
-            <div className="mt-6">
-              <h4 className="font-medium text-sm mb-2">Horario de atención</h4>
-              <div className="text-xs text-muted-foreground">
-                <div>Lunes - Viernes</div>
-                <div>8:00 - 18:00 hrs</div>
-              </div>
-            </div>
+         
           </div>
 
           {/* Información */}
-          <div>
-            <h3 className="font-semibold text-base mb-4">Información</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="/aviso-privacidad" className="text-muted-foreground hover:text-primary transition-colors">
-                  Aviso de privacidad
-                </Link>
-              </li>
-              <li>
-                <Link href="/terminos" className="text-muted-foreground hover:text-primary transition-colors">
-                  Términos y condiciones
-                </Link>
-              </li>
-            </ul>
-          </div>
+          
         </div>
 
         <Separator className="my-8" />
