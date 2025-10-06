@@ -54,7 +54,7 @@ export const HeroSection = () => {
           
 
           {/* Título principal */}
-          <div className={`transform transition-all duration-700   delay-100 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
+          <div className={`transform transition-all duration-700  -mt-12 delay-100 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
             <h1 className="text-xl md:text-2xl lg:text-3xl font-semibold text-gray-200/90 tracking-wide mb-4">
               <span className="bg-gradient-to-r from-primary via-primary/80 to-accent text-transparent bg-clip-text">
                 Proyectos de Ingeniería
@@ -62,7 +62,7 @@ export const HeroSection = () => {
             </h1>
             
             {/* Marca principal */}
-            <div className="flex items-start sm:-mb-24 sm:-mt-24 sm:-ml-0 -ml-12 -mt-1  text-white drop-shadow-2xl">
+            <div className="flex items-start sm:-mb-24 sm:-mt-24 sm:-ml-0 -ml-12 -mt-12  text-white drop-shadow-2xl">
   <Image
     src="/cratecklogo2.png"
     alt="Logo Crateck"

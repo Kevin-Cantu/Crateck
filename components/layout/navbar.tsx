@@ -72,16 +72,16 @@ export const Navbar = () => {
       <div className="flex items-center lg:hidden">
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
-            <Menu
-              onClick={() => setIsOpen(!isOpen)}
-              className="cursor-pointer lg:hidden"
-            />
+          <Menu
+  onClick={() => setIsOpen(!isOpen)}
+  className="cursor-pointer lg:hidden w-10 h-10 p-2 text-primary hover:text-accent transition-colors"
+/>
           </SheetTrigger>
 
           <SheetContent
             side="left"
-            className="flex flex-col justify-between rounded-tr-2xl rounded-br-2xl bg-card border-secondary"
-          >
+            className="flex flex-col justify-between rounded-tr-2xl rounded-br-2xl bg-white border border-gray-200 text-gray-900 dark:text-gray-900"
+            >
             <div>
               <SheetHeader className="mb-4 ml-4">
                 <SheetTitle className="flex items-center">
@@ -123,7 +123,7 @@ export const Navbar = () => {
 
                 {/* Soluciones en móvil */}
                 <div className="flex flex-col gap-1">
-                  <p className="px-4 py-2 text-sm font-medium text-muted-foreground">
+                  <p className="px-4 py-2 text-sm font-medium ">
                     Soluciones
                   </p>
                   {solutionsList.map(({ href, label }) => (
@@ -220,11 +220,11 @@ export const Navbar = () => {
           <div className="absolute top-full left-0 mt-1 w-[280px] bg-popover border rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
             <div className="flex flex-col p-2">
               {solutionsList.map(({ href, label, description }) => (
-              <Link
-              key={href}
-              href={href}
-              className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent/30 hover:text-foreground focus:bg-accent/30 focus:text-foreground"
-            >
+                <Link
+                  key={href}
+                  href={href}
+                  className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                >
                   <div className="text-sm font-medium leading-none">
                     {label}
                   </div>

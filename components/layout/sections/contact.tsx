@@ -114,21 +114,7 @@ export const ContactSection = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-card">
-              <CardHeader className="pb-3">
-                <CardTitle className="flex items-center gap-2 text-base">
-                  <Clock className="w-4 h-4 text-primary" />
-                  Horario
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-1.5 text-sm">
-                  <div className="flex justify-between"><span>Lunes - Viernes</span><span className="font-medium">8:00 - 18:00</span></div>
-                  <div className="flex justify-between"><span>Sábados</span><span className="font-medium">9:00 - 14:00</span></div>
-                  <div className="flex justify-between text-muted-foreground"><span>Domingos</span><span>Cerrado</span></div>
-                </div>
-              </CardContent>
-            </Card>
+         
           </div>
 
           {/* Formulario */}
