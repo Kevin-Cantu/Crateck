@@ -6,6 +6,8 @@ import { ObraElectricaSection } from "@/components/layout/sections/obra-electric
 import { EnergiaSolarSection } from "@/components/layout/sections/energia-solar";
 import { ObraCivilSection } from "@/components/layout/sections/obra-civil";
 import { CasosExitoSection } from "@/components/layout/sections/casos-exito";
+import { EquipmentRentalSection } from "@/components/layout/sections/equipment-rental";
+import { EquipmentRental } from "@/components/obra-civil/EquipmentRentalSection";
 
 export const metadata = {
   title: "Crateck | Soluciones de Ingeniería, Obra Civil y Eléctrica",
@@ -56,7 +58,7 @@ export default function Home() {
 
       {/* Proyectos Carousel */}
       <ProyectosCarouselSection />
-
+      <EquipmentRental/>
       {/* Nosotros */}
       <AboutSection />
 

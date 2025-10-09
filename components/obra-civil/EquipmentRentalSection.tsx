@@ -63,7 +63,7 @@ const equipmentData: EquipmentItem[] = [
   { id: "030300016", code: "030300016", name: "GRUA TITAN 22-25 TON", description: "Grúa Titán 22-25 toneladas", unit: "HR", price: 2500, category: "Grúas" },
 ];
 
-export const EquipmentRentalSection = () => {
+export const EquipmentRental = () => {
   const [selectedCategory, setSelectedCategory] = useState<CategoryType>("Equipo de Generación");
 
   const categories = useMemo(

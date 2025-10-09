@@ -72,10 +72,9 @@ export const Navbar = () => {
       <div className="flex items-center lg:hidden">
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
-          <Menu
-  onClick={() => setIsOpen(!isOpen)}
-  className="cursor-pointer lg:hidden w-10 h-10 p-2 text-primary hover:text-accent transition-colors"
-/>
+            <Button variant="ghost" size="icon" aria-label="Abrir menú" className="w-10 h-10 p-2 text-primary hover:text-accent transition-colors">
+              <Menu className="w-6 h-6" />
+            </Button>
           </SheetTrigger>
 
           <SheetContent
@@ -138,6 +137,16 @@ export const Navbar = () => {
                     </Button>
                   ))}
                 </div>
+
+                {/* Renta de maquinaria */}
+                <Button
+                  onClick={() => setIsOpen(false)}
+                  asChild
+                  variant="ghost"
+                  className="justify-start text-base"
+                >
+                  <Link href="/renta-de-equipo">Renta de maquinaria</Link>
+                </Button>
 
                 {/* Proyectos */}
                 <Button
@@ -236,6 +245,14 @@ export const Navbar = () => {
             </div>
           </div>
         </div>
+
+        {/* Renta de maquinaria */}
+        <Link
+          href="/renta-de-equipo"
+          className="text-base px-4 py-2 hover:bg-accent hover:text-accent-foreground rounded-md transition-colors"
+        >
+          Renta de maquinaria
+        </Link>
 
         {/* Proyectos */}
         <Link
