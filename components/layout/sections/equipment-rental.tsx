@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 interface EquipmentItem {
   id: string;
@@ -70,6 +71,7 @@ const equipmentData: EquipmentItem[] = [
 export const EquipmentRentalSection = () => {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>("Equipo de Generación");
+  const [hasChosenCategory, setHasChosenCategory] = useState<boolean>(false);
 
   const categories = Array.from(new Set(equipmentData.map(item => item.category)));
   const filteredEquipment = equipmentData.filter(item => item.category === selectedCategory);
@@ -107,7 +109,7 @@ export const EquipmentRentalSection = () => {
   const getTotalItems = () => cart.reduce((sum, item) => sum + item.quantity, 0);
 
   const generateWhatsAppMessage = () => {
-    const message = `¡Hola! Me interesa rentar el siguiente equipo de Crateck:\n\n${cart.map(item => `• ${item.name}\n  Cantidad: ${item.quantity}`).join('\n\n')}\n\n¿Podrían proporcionarme más información sobre disponibilidad y condiciones de renta?\n\nGracias.`;
+    const message = `¡Hola! Me interesa rentar la siguiente maquinaria:\n\n${cart.map(item => `• ${item.name}\n  Cantidad: ${item.quantity}`).join('\n\n')}\n\n¿Podrían proporcionarme más información sobre disponibilidad y condiciones de renta?\n\nGracias.`;
 
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/528132192308?text=${encodedMessage}`;
@@ -165,33 +167,24 @@ export const EquipmentRentalSection = () => {
           </p>
         </div>
 
-        {/* Mobile: selector de categoría con botón en Sheet (mejor visual en celular) */}
+        {/* Mobile: selector de categoría con combobox */}
         <div className="lg:hidden mb-6">
           <div className="flex items-center gap-3 mb-4">
-            <Sheet>
-              <SheetTrigger asChild>
-                <Button className="flex-1" variant="outline">
-                  Seleccionar categoría: <span className="font-semibold ml-1">{selectedCategory}</span>
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="bottom" className="h-[70vh]">
-                <SheetHeader>
-                  <SheetTitle>Categorías</SheetTitle>
-                </SheetHeader>
-                <div className="mt-6 grid grid-cols-1 gap-2">
-                  {categories.map((category) => (
-                    <Button
-                      key={category}
-                      variant={selectedCategory === category ? "default" : "ghost"}
-                      className="justify-start"
-                      onClick={() => setSelectedCategory(category)}
-                    >
-                      {category}
-                    </Button>
-                  ))}
-                </div>
-              </SheetContent>
-            </Sheet>
+            <Select
+              value={hasChosenCategory ? selectedCategory : undefined}
+              onValueChange={(val) => { setSelectedCategory(val); setHasChosenCategory(true); }}
+            >
+              <SelectTrigger className="flex-1">
+                <SelectValue placeholder="Seleccionar categoría" />
+              </SelectTrigger>
+              <SelectContent>
+                {categories.map((category) => (
+                  <SelectItem key={category} value={category}>
+                    {category}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
         </div>
 
@@ -209,7 +202,7 @@ export const EquipmentRentalSection = () => {
                       key={category}
                       variant={selectedCategory === category ? "default" : "ghost"}
                       className="w-full justify-start text-sm"
-                      onClick={() => setSelectedCategory(category)}
+                      onClick={() => { setSelectedCategory(category); setHasChosenCategory(true); }}
                     >
                       {category}
                     </Button>
@@ -222,10 +215,10 @@ export const EquipmentRentalSection = () => {
                   <CardHeader>
                     <CardTitle>Lista ({cart.length})</CardTitle>
                   </CardHeader>
-                  <CardContent>
-                    <CartContent />
-                  </CardContent>
-                </Card>
+                    <CardContent>
+                      <CartContent />
+                    </CardContent>
+                  </Card>
               )}
             </div>
           </div>
@@ -285,7 +278,7 @@ export const EquipmentRentalSection = () => {
           <div className="lg:hidden fixed bottom-4 left-4 right-4 z-50">
             <Sheet>
               <SheetTrigger asChild>
-                <Button size="lg" className="w-full shadow-lg">
+                <Button size="lg" variant="default" className="w-full shadow-lg bg-primary text-primary-foreground hover:bg-primary/90">
                   Ver Lista ({getTotalItems()})
                 </Button>
               </SheetTrigger>

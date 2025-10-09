@@ -82,35 +82,34 @@ export const EnergiaSolarSection = () => {
       ))}
     </div>
 
-    {/* Fila inferior: 2 cards centradas y del mismo tamaño */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:w-2/3 items-stretch">
-      {services.slice(3, 5).map(({ icon, title, description }) => (
-        <Card
-          key={title}
-          className="group h-full flex flex-col justify-between bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm border-orange-100 dark:border-slate-700 hover:shadow-xl transition-all duration-500 hover:scale-[1.02]"
-        >
-          <CardHeader className="text-center pb-4">
-            <div className="relative mb-4 mx-auto w-fit">
-              <div className="bg-gradient-to-br from-amber-100 to-orange-100 dark:from-orange-900/30 dark:to-amber-900/30 p-4 rounded-xl group-hover:from-amber-200 group-hover:to-orange-200 dark:group-hover:from-orange-800/50 dark:group-hover:to-amber-800/50 transition-all duration-500">
-                <Icon
-                  name={icon as keyof typeof icons}
-                  size={32}
-                  className="text-amber-600 dark:text-amber-400 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors duration-500"
-                />
-              </div>
-            </div>
-            <CardTitle className="text-xl leading-tight text-slate-800 dark:text-slate-200 px-2">
-              {title}
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="text-center px-4 flex-grow flex items-center justify-center">
-            <p className="text-slate-600 dark:text-slate-300 text-lg leading-relaxed">
-              {description}
-            </p>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
+    <div className="flex justify-center w-full">
+  {services.slice(3, 4).map(({ icon, title, description }) => (
+    <Card
+      key={title}
+      className="group h-full flex flex-col justify-between bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm border-orange-100 dark:border-slate-700 hover:shadow-xl transition-all duration-500 hover:scale-[1.02] w-full sm:w-[340px] md:w-[380px]"
+    >
+      <CardHeader className="text-center pb-4">
+        <div className="relative mb-4 mx-auto w-fit">
+          <div className="bg-gradient-to-br from-amber-100 to-orange-100 dark:from-orange-900/30 dark:to-amber-900/30 p-4 rounded-xl group-hover:from-amber-200 group-hover:to-orange-200 dark:group-hover:from-orange-800/50 dark:group-hover:to-amber-800/50 transition-all duration-500">
+            <Icon
+              name={icon as keyof typeof icons}
+              size={32}
+              className="text-amber-600 dark:text-amber-400 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors duration-500"
+            />
+          </div>
+        </div>
+        <CardTitle className="text-xl leading-tight text-slate-800 dark:text-slate-200 px-2">
+          {title}
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="text-center px-4 flex-grow flex items-center justify-center">
+        <p className="text-slate-600 dark:text-slate-300 text-lg leading-relaxed">
+          {description}
+        </p>
+      </CardContent>
+    </Card>
+  ))}
+</div>
   </div>
 </div>
 

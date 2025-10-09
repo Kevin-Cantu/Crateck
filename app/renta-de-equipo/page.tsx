@@ -33,16 +33,7 @@ export default function RentaDeEquipoPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-muted/50 to-background py-24 sm:py-32">
-        <div className="container">
-          <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Renta de Equipo</h1>
-            <p className="text-xl text-muted-foreground mb-8">
-              Soluciones de renta de maquinaria y equipo para tus proyectos industriales.
-            </p>
-          </div>
-        </div>
-      </section>
+     
 
       {/* Equipment Rental Section */}
       <EquipmentRentalSection />
