@@ -24,11 +24,7 @@ export const EnergiaSolarSection = () => {
       title: "Monitoreo, mantenimiento y operación (O&M)",
       description: "Brindamos servicios postventa para garantizar el rendimiento continuo del sistema.",
     },
-    {
-      icon: "TrendingUp",
-      title: "Análisis de rentabilidad y retorno de inversión (ROI)",
-      description: "Te ayudamos a visualizar los beneficios financieros de migrar a energía solar.",
-    },
+
   ];
 
   return (

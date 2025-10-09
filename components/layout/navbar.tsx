@@ -52,8 +52,27 @@ const solutionsList: SolutionProps[] = [
   },
 ];
 
+function useIsMobile(breakpointPx = 1024) {
+  const [isMobile, setIsMobile] = React.useState<boolean>(true);
+
+  React.useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < breakpointPx);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, [breakpointPx]);
+
+  return isMobile;
+}
+
 export const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const isMobile = useIsMobile(); // < lg only
+
+  // Hard-close the sheet if we cross to desktop while open
+  React.useEffect(() => {
+    if (!isMobile && isOpen) setIsOpen(false);
+  }, [isMobile, isOpen]);
 
   return (
     <header className="shadow-inner bg-opacity-15 w-[90%] md:w-[70%] lg:w-[75%] lg:max-w-screen-xl top-5 mx-auto sticky border border-secondary z-40 rounded-2xl flex justify-between items-center p-2 bg-card h-16">
@@ -68,125 +87,89 @@ export const Navbar = () => {
         />
       </Link>
 
-      {/* Mobile */}
-      <div className="flex items-center lg:hidden">
-        <Sheet open={isOpen} onOpenChange={setIsOpen}>
-          <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" aria-label="Abrir menú" className="w-10 h-10 p-2 text-primary hover:text-accent transition-colors">
-              <Menu className="w-6 h-6" />
-            </Button>
-          </SheetTrigger>
+      {/* Mobile only */}
+      {isMobile && (
+        <div className="flex items-center lg:hidden">
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" aria-label="Abrir menú" className="w-10 h-10 p-2 text-primary hover:text-accent transition-colors">
+                <Menu className="w-6 h-6" />
+              </Button>
+            </SheetTrigger>
 
-          <SheetContent
-            side="left"
-            className="flex flex-col justify-between rounded-tr-2xl rounded-br-2xl bg-white border border-gray-200 text-gray-900 dark:text-gray-900"
+            <SheetContent
+              side="left"
+              className="flex flex-col justify-between rounded-tr-2xl rounded-br-2xl bg-white border border-gray-200 text-gray-900 dark:text-gray-900"
             >
-            <div>
-              <SheetHeader className="mb-4 ml-4">
-                <SheetTitle className="flex items-center">
-                  <Link href="/" className="flex items-center">
-                    <div className="h-12 w-auto flex items-center overflow-hidden">
-                      <Image
-                        src="/cratecklogo.png"
-                        alt="Logo Crateck"
-                        width={200}
-                        height={300}
-                        className="object-contain"
-                        priority
-                      />
-                    </div>
-                  </Link>
-                </SheetTitle>
-              </SheetHeader>
+              <div>
+                <SheetHeader className="mb-4 ml-4">
+                  <SheetTitle className="flex items-center">
+                    <Link href="/" className="flex items-center" onClick={() => setIsOpen(false)}>
+                      <div className="h-12 w-auto flex items-center overflow-hidden">
+                        <Image
+                          src="/cratecklogo.png"
+                          alt="Logo Crateck"
+                          width={200}
+                          height={300}
+                          className="object-contain"
+                          priority
+                        />
+                      </div>
+                    </Link>
+                  </SheetTitle>
+                </SheetHeader>
 
-              <div className="flex flex-col gap-2">
-                {/* Inicio */}
-                <Button
-                  onClick={() => setIsOpen(false)}
-                  asChild
-                  variant="ghost"
-                  className="justify-start text-base"
-                >
-                  <Link href="/">Inicio</Link>
-                </Button>
+                <div className="flex flex-col gap-2">
+                  {/* Inicio */}
+                  <Button onClick={() => setIsOpen(false)} asChild variant="ghost" className="justify-start text-base">
+                    <Link href="/">Inicio</Link>
+                  </Button>
 
-                {/* Nuestros clientes */}
-                <Button
-                  onClick={() => setIsOpen(false)}
-                  asChild
-                  variant="ghost"
-                  className="justify-start text-base"
-                >
-                  <Link href="/#casos-exito">Nuestros clientes</Link>
-                </Button>
+                  {/* Nuestros clientes */}
+                  <Button onClick={() => setIsOpen(false)} asChild variant="ghost" className="justify-start text-base">
+                    <Link href="/#casos-exito">Nuestros clientes</Link>
+                  </Button>
 
-                {/* Soluciones en móvil */}
-                <div className="flex flex-col gap-1">
-                  <p className="px-4 py-2 text-sm font-medium ">
-                    Soluciones
-                  </p>
-                  {solutionsList.map(({ href, label }) => (
-                    <Button
-                      key={href}
-                      onClick={() => setIsOpen(false)}
-                      asChild
-                      variant="ghost"
-                      className="justify-start text-sm pl-6"
-                    >
-                      <Link href={href}>{label}</Link>
-                    </Button>
-                  ))}
+                  {/* Soluciones en móvil */}
+                  <div className="flex flex-col gap-1">
+                    <p className="px-4 py-2 text-sm font-medium">Soluciones</p>
+                    {solutionsList.map(({ href, label }) => (
+                      <Button key={href} onClick={() => setIsOpen(false)} asChild variant="ghost" className="justify-start text-sm pl-6">
+                        <Link href={href}>{label}</Link>
+                      </Button>
+                    ))}
+                  </div>
+
+                  {/* Renta de maquinaria */}
+                  <Button onClick={() => setIsOpen(false)} asChild variant="ghost" className="justify-start text-base">
+                    <Link href="/renta-de-equipo">Renta de maquinaria</Link>
+                  </Button>
+
+                  {/* Proyectos */}
+                  <Button onClick={() => setIsOpen(false)} asChild variant="ghost" className="justify-start text-base">
+                    <Link href="/#proyectos-carousel">Proyectos</Link>
+                  </Button>
+
+                  {/* Nosotros */}
+                  <Button onClick={() => setIsOpen(false)} asChild variant="ghost" className="justify-start text-base">
+                    <Link href="/#nosotros">Nosotros</Link>
+                  </Button>
+
+                  {/* Contacto */}
+                  <Button onClick={() => setIsOpen(false)} asChild variant="ghost" className="justify-start text-base">
+                    <Link href="/#contacto">Contacto</Link>
+                  </Button>
                 </div>
-
-                {/* Renta de maquinaria */}
-                <Button
-                  onClick={() => setIsOpen(false)}
-                  asChild
-                  variant="ghost"
-                  className="justify-start text-base"
-                >
-                  <Link href="/renta-de-equipo">Renta de maquinaria</Link>
-                </Button>
-
-                {/* Proyectos */}
-                <Button
-                  onClick={() => setIsOpen(false)}
-                  asChild
-                  variant="ghost"
-                  className="justify-start text-base"
-                >
-                  <Link href="/#proyectos-carousel">Proyectos</Link>
-                </Button>
-
-                {/* Nosotros */}
-                <Button
-                  onClick={() => setIsOpen(false)}
-                  asChild
-                  variant="ghost"
-                  className="justify-start text-base"
-                >
-                  <Link href="/#nosotros">Nosotros</Link>
-                </Button>
-
-                {/* Contacto */}
-                <Button
-                  onClick={() => setIsOpen(false)}
-                  asChild
-                  variant="ghost"
-                  className="justify-start text-base"
-                >
-                  <Link href="/#contacto">Contacto</Link>
-                </Button>
               </div>
-            </div>
 
-            <SheetFooter className="flex-col sm:flex-col justify-start items-start">
-              <Separator className="mb-2" />
-              <ToggleTheme />
-            </SheetFooter>
-          </SheetContent>
-        </Sheet>
-      </div>
+              <SheetFooter className="flex-col sm:flex-col justify-start items-start">
+                <Separator className="mb-2" />
+                <ToggleTheme />
+              </SheetFooter>
+            </SheetContent>
+          </Sheet>
+        </div>
+      )}
 
       {/* Desktop */}
       <div className="hidden lg:flex items-center mx-auto space-x-1">
