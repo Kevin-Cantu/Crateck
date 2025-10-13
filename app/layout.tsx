@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { Navbar } from "@/components/layout/navbar";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { FooterSection } from "@/components/layout/sections/footer";
+import { ChatbotWidget } from "@/components/chatbot/ChatbotWidget";
 
 const montserrat = Montserrat({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700"] });
 
@@ -37,6 +38,7 @@ export default function RootLayout({
           <Navbar />
           <main className="flex-1">{children}</main>
           <FooterSection />
+          <ChatbotWidget />
         </ThemeProvider>
       </body>
     </html>
