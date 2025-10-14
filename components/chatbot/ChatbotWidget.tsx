@@ -214,7 +214,7 @@ export function ChatbotWidget() {
     appendBot(next.text);
   };
 
-  const handleOption = async (opt: FlowNode["options"][number]) => {
+  const handleOption = async (opt: NonNullable<FlowNode["options"]>[number]) => {
     appendUser(opt.label);
     await goTo(opt.next);
     if (opt.action) {
