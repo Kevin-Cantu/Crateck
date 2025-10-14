@@ -89,7 +89,7 @@ export const Navbar = () => {
 
       {/* Mobile only */}
       {isMobile && (
-        <div className=" items-center lg:hidden block">
+        <div className="flex items-center lg:hidden">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" aria-label="Abrir menú" className="w-10 h-10 p-2 text-primary hover:text-accent transition-colors">
@@ -132,7 +132,7 @@ export const Navbar = () => {
 
                   {/* Soluciones en móvil */}
                   <div className="flex flex-col gap-1">
-                    <p className="px-4 py-2 text-sm font-medium ">Soluciones</p>
+                    <p className="px-4 py-2 text-sm font-medium">Soluciones</p>
                     {solutionsList.map(({ href, label }) => (
                       <Button key={href} onClick={() => setIsOpen(false)} asChild variant="ghost" className="justify-start text-sm pl-6">
                         <Link href={href}>{label}</Link>
@@ -141,7 +141,7 @@ export const Navbar = () => {
                   </div>
 
                   {/* Renta de maquinaria */}
-                  <Button onClick={() => setIsOpen(false)} asChild variant="ghost" className="justify-start text-base">
+                  <Button onClick={() => setIsOpen(false)} asChild variant="ghost" className="justify-start">
                     <Link href="/renta-de-equipo">Renta de maquinaria</Link>
                   </Button>
 
@@ -184,7 +184,7 @@ export const Navbar = () => {
         {/* Nuestros clientes */}
         <Link
           href="/#casos-exito"
-          className="text-base px-4 py-2 hover:bg-accent hover:text-accent-foreground rounded-md transition-colors"
+          className="text-base px-4 py-2 hover:bg-accent hover:text-accent-foreground rounded-md text-center transition-colors"
         >
           Nuestros clientes
         </Link>
@@ -232,7 +232,7 @@ export const Navbar = () => {
         {/* Renta de maquinaria */}
         <Link
           href="/renta-de-equipo"
-          className="text-base px-4 py-2 hover:bg-accent hover:text-accent-foreground rounded-md transition-colors"
+          className="text-base px-4 py-2 hover:bg-accent hover:text-accent-foreground text-center rounded-md transition-colors"
         >
           Renta de maquinaria
         </Link>
