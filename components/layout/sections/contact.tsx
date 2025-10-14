@@ -70,11 +70,11 @@ export const ContactSection = () => {
   ];
 
   return (
-    <section id="contacto" className="py-16 scroll-mt-20  md:py-20 bg-gradient-to-br from-muted/20 to-background">
+    <section id="contacto" className="py-24 bg-gradient-to-br from-muted/20 to-background">
       <div className="container">
-        <div className="text-center mb-8">
-          <h2 className="text-lg text-primary mb-1 tracking-wider font-medium">Contacto</h2>
-          <h3 className="text-2xl md:text-4xl font-bold mb-2">Agenda tu asesoría gratuita</h3>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl  text-slate-600 dark:text-slate-400  mb-1 tracking-wider font-medium">Contacto</h2>
+          <h3 className="text-2xl md:text-3xl font-bold mb-2">Agenda tu asesoría gratuita</h3>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Cuéntanos sobre tu proyecto. Diseñamos e implementamos soluciones a la medida.
           </p>

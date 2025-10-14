@@ -50,13 +50,13 @@ export const CasosExitoSection = () => {
     <section
       id="casos-exito"
       aria-labelledby="casos-exito-title"
-      className="py-24 sm:py-32 scroll-mt-20  bg-gradient-to-br from-slate-50 via-gray-50 to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-gray-900"
+      className="py-24   bg-gradient-to-br from-slate-50 via-gray-50 to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-gray-900"
     >
-      <div className="container -mt-20 -mb-20">
+      <div className="container ">
         {/* Nuestros Clientes */}
         <div className="text-center mb-16">
           <Reveal as="div" delayMs={0}>
-            <h2 className="text-lg text-slate-600 dark:text-slate-400 mb-2 tracking-wider font-medium uppercase">
+            <h2 className="text-4xl text-slate-600 dark:text-slate-400 mb-2 tracking-wider font-medium uppercase">
               Nuestros Clientes
             </h2>
           </Reveal>
@@ -65,7 +65,7 @@ export const CasosExitoSection = () => {
             as="h3"
             delayMs={60}
             id="casos-exito-title"
-            className="text-3xl md:text-4xl font-bold mb-6 text-slate-900 dark:text-slate-100 leading-tight"
+            className="text-2xl md:text-3xl font-bold mb-6 text-slate-900 dark:text-slate-100 leading-tight"
           >
             Empresas que confían en nosotros
           </Reveal>

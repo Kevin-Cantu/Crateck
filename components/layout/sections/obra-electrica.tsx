@@ -19,14 +19,14 @@ export const ObraElectricaSection = () => {
   ];
 
   return (
-    <section id="obra-electrica" className="py-24 scroll-mt-20  sm:py-32 bg-gradient-to-br from-slate-50 via-slate-100 to-blue-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+    <section id="obra-electrica" className="py-24   bg-gradient-to-br from-slate-50 via-slate-100 to-blue-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
       <div className="container">
         {/* Encabezado principal */}
-        <div className="text-center mb-16 -mt-12">
-          <h2 className="text-lg text-slate-600 dark:text-slate-400 mb-2 tracking-wider font-medium uppercase">
+        <div className="text-center mb-16 ">
+          <h2 className="text-4xl text-slate-600 dark:text-slate-400 mb-2 tracking-wider font-medium uppercase">
             Desarrollo de Obra Eléctrica
           </h2>
-          <h3 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900 dark:text-slate-100 leading-tight">
+          <h3 className="text-2xl md:text-3xl font-bold mb-6 text-slate-900 dark:text-slate-100 leading-tight">
             Nos especializamos en el desarrollo de infraestructura eléctrica en baja, media y alta tensión
           </h3>
           <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto mb-8 leading-relaxed">

@@ -22,14 +22,14 @@ export const ObraCivilSection = () => {
   ];
 
   return (
-    <section id="obra-civil" className="py-24  scroll-mt-20  sm:py-32 bg-gradient-to-br from-stone-100 via-slate-100 to-gray-100 dark:from-slate-800 dark:via-slate-900 dark:to-gray-900">
+    <section id="obra-civil" className="py-24   bg-gradient-to-br from-stone-100 via-slate-100 to-gray-100 dark:from-slate-800 dark:via-slate-900 dark:to-gray-900">
       <div className="container">
         {/* Encabezado principal */}
-        <div className="text-center mb-16 -mt-12">
-          <h2 className="text-lg text-stone-600 dark:text-stone-400 mb-2 tracking-wider font-medium uppercase">
+        <div className="text-center mb-16 ">
+          <h2 className="text-4xl text-stone-600 dark:text-stone-400 mb-2 tracking-wider font-medium uppercase">
             Obra Civil
           </h2>
-          <h3 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900 dark:text-slate-100 leading-tight">
+          <h3 className="text-2xl md:text-3xl font-bold mb-6 text-slate-900 dark:text-slate-100 leading-tight">
             Cimientos sólidos para proyectos industriales exitosos
           </h3>
           <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto mb-6 leading-relaxed">

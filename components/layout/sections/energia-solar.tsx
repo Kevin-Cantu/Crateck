@@ -28,14 +28,14 @@ export const EnergiaSolarSection = () => {
   ];
 
   return (
-    <section id="energia-solar" className="py-24 scroll-mt-20  sm:py-32 bg-gradient-to-br from-amber-50/50 via-orange-50/30 to-yellow-50/50 dark:from-slate-900 dark:via-orange-950/20 dark:to-slate-800">
+    <section id="energia-solar" className="py-24   sm:py-32 bg-gradient-to-br from-amber-50/50 via-orange-50/30 to-yellow-50/50 dark:from-slate-900 dark:via-orange-950/20 dark:to-slate-800">
       <div className="container ">
         {/* Encabezado principal */}
-        <div className="text-center mb-16 -mt-12">
-          <h2 className="text-lg text-amber-600 dark:text-amber-400 mb-2 tracking-wider font-medium uppercase">
+        <div className="text-center mb-16 ">
+          <h2 className="text-4xl text-amber-600 dark:text-amber-400 mb-2 tracking-wider font-medium uppercase">
             Energía Solar
           </h2>
-          <h3 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900 dark:text-slate-100 leading-tight">
+          <h3 className="text-2xl md:text-3xl font-bold mb-6 text-slate-900 dark:text-slate-100 leading-tight">
             Impulsamos el futuro con soluciones fotovoltaicas a la medida
           </h3>
           <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto mb-8 leading-relaxed">
