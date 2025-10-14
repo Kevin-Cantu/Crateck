@@ -1,4 +1,5 @@
 import { EquipmentRentalSection } from "@/components/layout/sections/equipment-rental";
+import { RentalHeroSection } from "@/components/layout/sections/rental-hero";
 
 export const metadata = {
   title: "Renta de Equipo | Crateck - Maquinaria y Soluciones Industriales",
@@ -32,10 +33,10 @@ export const metadata = {
 export default function RentaDeEquipoPage() {
   return (
     <>
-      {/* Hero Section */}
-     
+      {/* Hero minimalista para renta de equipo */}
+      <RentalHeroSection />
 
-      {/* Equipment Rental Section */}
+      {/* Listado / Catálogo */}
       <EquipmentRentalSection />
     </>
   );

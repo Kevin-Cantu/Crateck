@@ -89,7 +89,7 @@ export const Navbar = () => {
 
       {/* Mobile only */}
       {isMobile && (
-        <div className="flex items-center lg:hidden">
+        <div className=" items-center lg:hidden block">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" aria-label="Abrir menú" className="w-10 h-10 p-2 text-primary hover:text-accent transition-colors">
@@ -132,7 +132,7 @@ export const Navbar = () => {
 
                   {/* Soluciones en móvil */}
                   <div className="flex flex-col gap-1">
-                    <p className="px-4 py-2 text-sm font-medium">Soluciones</p>
+                    <p className="px-4 py-2 text-sm font-medium ">Soluciones</p>
                     {solutionsList.map(({ href, label }) => (
                       <Button key={href} onClick={() => setIsOpen(false)} asChild variant="ghost" className="justify-start text-sm pl-6">
                         <Link href={href}>{label}</Link>

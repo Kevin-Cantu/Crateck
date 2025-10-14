@@ -101,7 +101,7 @@ export const HeroSection = () => {
                   <ArrowRight className="size-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                 </Button>
               </a>
-              <a href="/#proyectos">
+              <a href="/#proyectos-carousel">
                 <Button
                   variant="secondary"
                   className="group px-6 py-4 text-base font-semibold backdrop-blur-sm bg-white/10 border-white/20 text-white hover:bg-white/20 hover:scale-105 transition-all duration-300"

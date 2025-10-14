@@ -155,7 +155,7 @@ export const EquipmentRentalSection = () => {
   );
 
   return (
-    <section className="py-12 sm:py-24">
+    <section id="catalogo-equipo" className="py-12 sm:py-24">
       <div className="container">
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
