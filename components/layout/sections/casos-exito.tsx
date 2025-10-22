@@ -56,7 +56,7 @@ export const CasosExitoSection = () => {
         {/* Nuestros Clientes */}
         <div className="text-center mb-16">
           <Reveal as="div" delayMs={0}>
-            <h2 className="text-4xl text-slate-600 dark:text-slate-400 mb-2 tracking-wider font-medium uppercase">
+            <h2 className="text-3xl sm:text-4xl text-slate-600 dark:text-slate-400 mb-2 tracking-wider font-medium uppercase">
               Nuestros Clientes
             </h2>
           </Reveal>
@@ -65,7 +65,7 @@ export const CasosExitoSection = () => {
             as="h3"
             delayMs={60}
             id="casos-exito-title"
-            className="text-2xl md:text-3xl font-bold mb-6 text-slate-900 dark:text-slate-100 leading-tight"
+            className="text-xl md:text-3xl font-bold mb-6 text-slate-900 dark:text-slate-100 leading-tight"
           >
             Empresas que confían en nosotros
           </Reveal>

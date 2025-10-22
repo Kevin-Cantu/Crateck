@@ -49,8 +49,8 @@ export const AboutSection = () => {
         
         {/* Presentación principal */}
         <div className="text-center mb-16 ">
-          <h2 className="text-4xl text-slate-600 dark:text-slate-400 mb-2 tracking-wider font-medium uppercase">Nosotros</h2>
-          <h3 className="text-2xl md:text-3xl font-bold mb-6 text-slate-900 dark:text-slate-100">
+          <h2 className="text-3xl sm:text-4xl text-slate-600 dark:text-slate-400 mb-2 tracking-wider font-medium uppercase">Nosotros</h2>
+          <h3 className="text-xl md:text-3xl font-bold mb-6 text-slate-900 dark:text-slate-100">
             Líderes en proyectos de ingeniería y construcción
           </h3>
           <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto mb-8 leading-relaxed">
@@ -61,7 +61,7 @@ export const AboutSection = () => {
         </div>
 
         {/* Misión y Visión */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-16">
+        <div className="grid lg:grid-cols-2 gap-4 mb-8">
           
           {/* Nuestra Misión */}
           <Card className="bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm border-slate-200 dark:border-slate-700 hover:shadow-xl transition-all duration-500">
@@ -111,7 +111,7 @@ export const AboutSection = () => {
             </p>
           </CardHeader>
           <CardContent>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3">
               {differentiators.map((item, index) => (
                 <div key={index} className="flex items-start gap-3 p-4 bg-slate-50 dark:bg-slate-800/50 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors duration-300">
                   <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />

@@ -53,8 +53,6 @@ export default function Home() {
       {/* Obra Civil */}
       <ObraCivilSection />
 
-      {/* Casos de Éxito */}
-
       {/* Proyectos Carousel */}
       <ProyectosCarouselSection />
       {/* Nosotros */}

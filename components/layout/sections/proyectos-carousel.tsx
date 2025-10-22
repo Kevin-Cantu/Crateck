@@ -65,14 +65,14 @@ export const ProyectosCarouselSection = () => {
   }, [emblaApi]);
 
   return (
-    <section id="proyectos-carousel" className="py-24  bg-gradient-to-br from-slate-100 via-gray-100 to-slate-200 dark:from-slate-800 dark:via-slate-900 dark:to-gray-900">
+    <section id="proyectos-carousel" className="py-24  bg-gradient-to-br from-slate-100 via-gray-100 to-slate-200 dark:from-slate-800 dark:via-slate-800 dark:to-gray-800">
       <div className="container ">
         {/* Encabezado */}
         <div className="text-center mb-16">
           <Reveal as="div" delayMs={0}>
-            <h2 className="text-4xl text-slate-600 dark:text-slate-400 mb-2 tracking-wider font-medium uppercase">Proyectos Destacados</h2>
+            <h2 className="sm:text-4xl text-3xl text-slate-600 dark:text-slate-400 mb-2 tracking-wider font-medium uppercase">Proyectos Destacados</h2>
           </Reveal>
-          <Reveal as="h3" delayMs={60} className="text-2xl md:text-3xl font-bold mb-6 text-slate-900 dark:text-slate-100">Experiencia que transforma industrias</Reveal>
+          <Reveal as="h3" delayMs={60} className="text-xl md:text-3xl font-bold mb-6 text-slate-900 dark:text-slate-100">Experiencia que transforma industrias</Reveal>
           <Reveal as="div" delayMs={120}>
             <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">Cada proyecto representa nuestro compromiso con la excelencia, la innovación y la satisfacción del cliente en soluciones de ingeniería.</p>
           </Reveal>

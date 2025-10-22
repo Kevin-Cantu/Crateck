@@ -25,14 +25,14 @@ export const ObraCivilSection = () => {
     <section id="obra-civil" className="py-24   bg-gradient-to-br from-stone-100 via-slate-100 to-gray-100 dark:from-slate-800 dark:via-slate-900 dark:to-gray-900">
       <div className="container">
         {/* Encabezado principal */}
-        <div className="text-center mb-16 ">
-          <h2 className="text-4xl text-stone-600 dark:text-stone-400 mb-2 tracking-wider font-medium uppercase">
+        <div className="text-center mb-8 ">
+          <h2 className="sm:text-4xl text-3xl text-stone-600 dark:text-stone-400 mb-2 tracking-wider font-medium uppercase">
             Obra Civil
           </h2>
-          <h3 className="text-2xl md:text-3xl font-bold mb-6 text-slate-900 dark:text-slate-100 leading-tight">
+          <h3 className="text-xl md:text-3xl font-bold mb-6 text-slate-900 dark:text-slate-100 leading-tight">
             Cimientos sólidos para proyectos industriales exitosos
           </h3>
-          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto mb-6 leading-relaxed">
+          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto  leading-relaxed">
             Nuestro compromiso se centra en la seguridad, calidad y satisfacción del cliente. 
             Priorizamos la comunicación y responsabilidad durante todo el proceso.
           </p>
@@ -40,7 +40,7 @@ export const ObraCivilSection = () => {
 
         {/* Soluciones */}
         <div className="mb-8">
-          <h4 className="text-2xl font-bold text-center mb-12 text-slate-800 dark:text-slate-200 tracking-wide">
+          <h4 className="text-2xl font-bold text-center mb-8 text-slate-800 dark:text-slate-200 tracking-wide">
             SOLUCIONES
           </h4>
           
@@ -48,7 +48,7 @@ export const ObraCivilSection = () => {
             {solutions.map(({ icon, title, description }) => (
               <Card key={title} className="group h-full bg-white/95 dark:bg-slate-800/95 backdrop-blur-sm border-stone-200 dark:border-slate-700 hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
                 <CardHeader className="text-center pb-6">
-                  <div className="relative mb-6 mx-auto w-fit">
+                  <div className="relative mx-auto w-fit">
                     <div className="bg-gradient-to-br  from-stone-200 to-gray-200 dark:from-slate-700 dark:to-gray-700 p-5 rounded-2xl group-hover:from-stone-300 group-hover:to-gray-300 dark:group-hover:from-slate-600 dark:group-hover:to-gray-600 transition-all duration-500">
                       <Icon
                         name={icon as keyof typeof icons}
