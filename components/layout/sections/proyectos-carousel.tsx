@@ -7,6 +7,13 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import Reveal from "@/components/Reveal";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 
 interface Proyecto {
   id: string;
@@ -39,6 +46,9 @@ export const ProyectosCarouselSection = () => {
   const [canScrollNext, setCanScrollNext] = useState(false);
   const [dotsCount, setDotsCount] = useState(proyectos.length); // 1 dot por snap
 
+  const [open, setOpen] = useState(false);
+  const [proyectoActivo, setProyectoActivo] = useState<Proyecto | null>(null);
+
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
     setSelectedIndex(emblaApi.selectedScrollSnap());
@@ -63,6 +73,11 @@ export const ProyectosCarouselSection = () => {
     emblaApi?.scrollNext();
     (document.activeElement as HTMLElement)?.blur();
   }, [emblaApi]);
+
+  const abrirDialogo = (proyecto: Proyecto) => {
+    setProyectoActivo(proyecto);
+    setOpen(true);
+  };
 
   return (
     <section id="proyectos-carousel" className="py-24  bg-gradient-to-br from-slate-100 via-gray-100 to-slate-200 dark:from-slate-800 dark:via-slate-800 dark:to-gray-800">
@@ -115,27 +130,29 @@ export const ProyectosCarouselSection = () => {
                   <Card className="h-full overflow-hidden shadow-md hover:shadow-lg transition-shadow">
                     <CardContent className="p-0 h-full">
                       <div className="relative">
-                        {/* Grid de imágenes más anchas (2 columnas) */}
-                        <div className="grid grid-cols-2 gap-2 sm:gap-3 h-96">
-                          <div className="relative overflow-hidden group rounded-lg">
-                            <img src={proyecto.imagen1} alt={`${proyecto.titulo} - Imagen 1`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" style={{ display: "block", opacity: 1, visibility: "visible" }} />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                          </div>
-                          <div className="relative overflow-hidden group rounded-lg">
-                            <img src={proyecto.imagen2} alt={`${proyecto.titulo} - Imagen 2`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" style={{ display: "block", opacity: 1, visibility: "visible" }} />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                          </div>
-                        </div>
+                        {/* Imagen única clickable */}
+                        <button
+                          className="relative block w-full h-96 overflow-hidden group rounded-none cursor-pointer"
+                          onClick={() => abrirDialogo(proyecto)}
+                          aria-label={`Ver detalles de ${proyecto.titulo}`}
+                        >
+                          <img
+                            src={proyecto.imagen1}
+                            alt={`${proyecto.titulo}`}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            style={{ display: "block", opacity: 1, visibility: "visible" }}
+                          />
+                          <span className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                        </button>
 
                         {/* Badge */}
                         <div className="absolute top-4 left-4 z-10">
                           <Badge variant="secondary" className="text-xs bg-white/90 text-slate-800 backdrop-blur-sm">{proyecto.categoria}</Badge>
                         </div>
 
-                        {/* Overlay de texto */}
+                        {/* Overlay solo con título */}
                         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/60 to-transparent p-6">
-                          <h4 className="text-xl font-bold text-white mb-2 leading-tight">{proyecto.titulo}</h4>
-                          <p className="text-white/90 text-sm leading-relaxed">{proyecto.descripcion}</p>
+                          <h4 className="text-xl font-bold text-white leading-tight">{proyecto.titulo}</h4>
                         </div>
                       </div>
                     </CardContent>
@@ -154,6 +171,48 @@ export const ProyectosCarouselSection = () => {
           </div>
         </Reveal>
       </div>
+
+      {/* Dialogo de detalles */}
+      <Dialog open={open} onOpenChange={setOpen}>
+  <DialogContent>
+    {proyectoActivo && (
+      <div className="space-y-4">
+        <DialogHeader>
+          <DialogTitle>{proyectoActivo.titulo}</DialogTitle>
+          <DialogDescription>
+            {proyectoActivo.categoria}
+          </DialogDescription>
+        </DialogHeader>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          {/* Imagen 1 */}
+          <div className="relative overflow-hidden rounded-md bg-black/5 dark:bg-white/5 
+                          h-64 sm:h-80 md:h-[70vh]">
+            <img
+              src={proyectoActivo.imagen1}
+              alt={`${proyectoActivo.titulo} - Imagen 1`}
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* Imagen 2 */}
+          <div className="relative overflow-hidden rounded-md bg-black/5 dark:bg-white/5 
+                          h-64 sm:h-80 md:h-[70vh]">
+            <img
+              src={proyectoActivo.imagen2}
+              alt={`${proyectoActivo.titulo} - Imagen 2`}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+
+        <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+          {proyectoActivo.descripcion}
+        </p>
+      </div>
+    )}
+  </DialogContent>
+</Dialog>
     </section>
   );
 };
