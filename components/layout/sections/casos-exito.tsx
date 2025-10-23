@@ -71,12 +71,7 @@ export const CasosExitoSection = () => {
           </Reveal>
 
           {/* Evitar p dentro de p para no romper hidratación */}
-          <Reveal as="div" delayMs={120}>
-            <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">
-              Trabajamos con empresas líderes de diversos sectores, brindando soluciones de 
-              ingeniería y construcción que superan expectativas.
-            </p>
-          </Reveal>
+
         </div>
 
         {/* Móvil: doble carrusel en sentidos opuestos, sin click */}

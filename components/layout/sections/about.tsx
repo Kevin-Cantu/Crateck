@@ -49,7 +49,7 @@ export const AboutSection = () => {
         
         {/* Presentación principal */}
         <div className="text-center mb-16 ">
-          <h2 className="text-3xl sm:text-4xl text-slate-600 dark:text-slate-400 mb-2 tracking-wider font-medium uppercase">Nosotros</h2>
+          <h2 className="text-3xl sm:text-4xl text-slate-600 dark:text-slate-400 mb-4 tracking-wider font-medium uppercase">Nosotros</h2>
           <h3 className="text-xl md:text-3xl font-bold mb-6 text-slate-900 dark:text-slate-100">
             Líderes en proyectos de ingeniería y construcción
           </h3>
@@ -61,7 +61,7 @@ export const AboutSection = () => {
         </div>
 
         {/* Misión y Visión */}
-        <div className="grid lg:grid-cols-2 gap-4 mb-8">
+        <div className="grid lg:grid-cols-2 gap-6 mb-6">
           
           {/* Nuestra Misión */}
           <Card className="bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm border-slate-200 dark:border-slate-700 hover:shadow-xl transition-all duration-500">

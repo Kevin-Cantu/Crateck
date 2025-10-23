@@ -29,10 +29,7 @@ export const ObraElectricaSection = () => {
           <h3 className="text-xl md:text-3xl font-bold mb-6 text-slate-900 dark:text-slate-100 leading-tight">
             Nos especializamos en el desarrollo de infraestructura eléctrica en baja, media y alta tensión
           </h3>
-          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto mb-8 leading-relaxed">
-            Transformamos proyectos eléctricos complejos en soluciones confiables y eficientes, 
-            desde el diseño hasta la puesta en marcha con los más altos estándares de seguridad.
-          </p>
+       
         </div>
 
         {/* Nuestros servicios */}
