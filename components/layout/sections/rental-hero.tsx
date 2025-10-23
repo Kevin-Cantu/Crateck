@@ -14,7 +14,7 @@ export const RentalHeroSection = () => {
   return (
     <section
       className="relative w-full -mt-16 overflow-hidden h-screen"
-      aria-label="Renta de maquinaria y equipo"
+      aria-label=" ia y equipo"
     >
       {/* Fondo tipo inicio */}
       <Image
@@ -37,7 +37,7 @@ export const RentalHeroSection = () => {
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
               } transition-all duration-700`}
             >
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white tracking-tight leading-tight">
+              <h1 className="text-3xl sm:text-4xl sm:pt-20 pt-12 lg:text-5xl xl:text-6xl font-extrabold text-white tracking-tight leading-tight">
                 Renta de Maquinaria y Equipo
               </h1>
 
