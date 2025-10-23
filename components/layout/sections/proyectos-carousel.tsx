@@ -172,43 +172,41 @@ export const ProyectosCarouselSection = () => {
         </Reveal>
       </div>
 
-      {/* Dialogo de detalles */}
+      {/* Dialogo de detalles (solo mejoramos desktop, móvil intacto) */}
       <Dialog open={open} onOpenChange={setOpen}>
-  <DialogContent>
+  <DialogContent className="md:max-w-6xl md:p-8 sm:p-6 p-4 md:rounded-2xl md:shadow-xl">
     {proyectoActivo && (
-      <div className="space-y-4">
-        <DialogHeader>
-          <DialogTitle>{proyectoActivo.titulo}</DialogTitle>
-          <DialogDescription>
+      <div className="space-y-6">
+        {/* Header */}
+        <DialogHeader className="text-center md:text-left">
+          <DialogTitle className="text-2xl md:text-3xl font-bold">{proyectoActivo.titulo}</DialogTitle>
+          <DialogDescription className="text-sm md:text-base text-slate-600 dark:text-slate-300 mt-1">
             {proyectoActivo.categoria}
           </DialogDescription>
         </DialogHeader>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          {/* Imagen 1 */}
-          <div className="relative overflow-hidden rounded-md bg-black/5 dark:bg-white/5 
-                          h-64 sm:h-80 md:h-[70vh]">
+        {/* Imágenes */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
             <img
               src={proyectoActivo.imagen1}
               alt={`${proyectoActivo.titulo} - Imagen 1`}
-              className="w-full h-full object-cover"
+              className="w-full aspect-video object-cover"
             />
           </div>
-
-          {/* Imagen 2 */}
-          <div className="relative overflow-hidden rounded-md bg-black/5 dark:bg-white/5 
-                          h-64 sm:h-80 md:h-[70vh]">
+          <div className="rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
             <img
               src={proyectoActivo.imagen2}
               alt={`${proyectoActivo.titulo} - Imagen 2`}
-              className="w-full h-full object-cover"
+              className="w-full aspect-video object-cover"
             />
           </div>
         </div>
 
-        <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+        {/* Descripción */}
+        <DialogDescription className="text-base md:text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
           {proyectoActivo.descripcion}
-        </p>
+        </DialogDescription>
       </div>
     )}
   </DialogContent>
