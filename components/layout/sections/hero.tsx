@@ -7,7 +7,11 @@ import { useState, useEffect } from "react";
 export const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  useEffect(() => setIsVisible(true), []);
+  // Dispara la animación después del primer paint para evitar hidratar en estado "visible"
+  useEffect(() => {
+    const t = requestAnimationFrame(() => setIsVisible(true));
+    return () => cancelAnimationFrame(t);
+  }, []);
 
   return (
     <section
@@ -27,7 +31,8 @@ export const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50" />
 
       {/* Contenido */}
-      <div className="relative z-10 flex flex-col items-center text-center   sm:px-10 w-full max-w-full">        {/* Logo */}
+      <div className="relative z-10 flex flex-col items-center text-center   sm:px-10 w-full max-w-full">
+        {/* Logo */}
         <div
           className={`transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
@@ -68,7 +73,6 @@ export const HeroSection = () => {
             <span className="text-accent font-semibold">seguridad</span> y{" "}
             <span className="text-primary font-semibold">crecimiento</span>.
           </p>
-        
         </div>
 
         {/* Botones */}
