@@ -144,45 +144,35 @@ export const Navbar = () => {
                     onClick={() => setIsOpen(false)}
                     asChild
                     variant="ghost"
-                    className="justify-start text-base"
+                    className="justify-start text-base font-semibold"
                   >
                     <Link href="/">Inicio</Link>
                   </Button>
 
-                  {/* Nuestros clientes */}
-
                   {/* Soluciones en móvil */}
                   <div className="flex flex-col gap-1">
-                    <p className="px-4 py-2 text-sm font-medium">Soluciones</p>
+                    <p className="px-4 pt-4 pb-2 text-xs font-semibold tracking-wide text-muted-foreground uppercase">
+                      Soluciones
+                    </p>
                     {solutionsList.map(({ href, label }) => (
                       <Button
                         key={href}
                         onClick={() => setIsOpen(false)}
                         asChild
                         variant="ghost"
-                        className="justify-start text-sm pl-6"
+                        className="justify-start text-base font-semibold pl-6"
                       >
                         <Link href={href}>{label}</Link>
                       </Button>
                     ))}
                   </div>
 
-                  {/* Renta de maquinaria */}
-                  <Button
-                    onClick={() => setIsOpen(false)}
-                    asChild
-                    variant="ghost"
-                    className="justify-start"
-                  >
-                    <Link href="/renta-de-equipo">Renta de maquinaria</Link>
-                  </Button>
-
                   {/* Proyectos */}
                   <Button
                     onClick={() => setIsOpen(false)}
                     asChild
                     variant="ghost"
-                    className="justify-start text-base"
+                    className="justify-start text-base font-semibold"
                   >
                     <Link href="/#proyectos-carousel">Proyectos</Link>
                   </Button>
@@ -192,7 +182,7 @@ export const Navbar = () => {
                     onClick={() => setIsOpen(false)}
                     asChild
                     variant="ghost"
-                    className="justify-start text-base"
+                    className="justify-start text-base font-semibold"
                   >
                     <Link href="/#nosotros">Nosotros</Link>
                   </Button>
@@ -202,7 +192,7 @@ export const Navbar = () => {
                     onClick={() => setIsOpen(false)}
                     asChild
                     variant="ghost"
-                    className="justify-start text-base"
+                    className="justify-start text-base font-semibold"
                   >
                     <Link href="/#contacto">Contacto</Link>
                   </Button>
@@ -210,7 +200,17 @@ export const Navbar = () => {
               </div>
 
               <SheetFooter className="flex-col sm:flex-col justify-start items-start">
-                <Separator className="mb-2" />
+                {/* Renta de maquinaria - destacado, justo sobre la línea del footer */}
+                <Button
+                  onClick={() => setIsOpen(false)}
+                  asChild
+                  variant="default"
+                  className="w-full justify-center mb-2 font-semibold"
+                >
+                  <Link href="/renta-de-equipo">Renta de maquinaria</Link>
+                </Button>
+
+                <Separator className="mb-2 w-full" />
                 <ToggleTheme />
               </SheetFooter>
             </SheetContent>
@@ -226,8 +226,6 @@ export const Navbar = () => {
         >
           Inicio
         </Link>
-
-        {/* Nuestros clientes */}
 
         {/* Soluciones (dropdown) */}
         <div className="relative group">
@@ -269,13 +267,8 @@ export const Navbar = () => {
           </div>
         </div>
 
-        {/* Renta de maquinaria */}
-        <Link
-          href="/renta-de-equipo"
-          className="text-base px-4 py-2 hover:bg-accent hover:text-accent-foreground text-center rounded-md transition-colors"
-        >
-          Renta de maquinaria
-        </Link>
+        {/* Renta de maquinaria - destacado */}
+          <Link href="/renta-de-equipo">Renta de maquinaria</Link>
 
         {/* Proyectos */}
         <Link
