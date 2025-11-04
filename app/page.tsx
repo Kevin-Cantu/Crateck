@@ -7,6 +7,7 @@ import { EnergiaSolarSection } from "@/components/layout/sections/energia-solar"
 import { ObraCivilSection } from "@/components/layout/sections/obra-civil";
 import { CasosExitoSection } from "@/components/layout/sections/casos-exito";
 import { EquipmentRentalSection } from "@/components/layout/sections/equipment-rental";
+import NewsletterDialogSection from "@/components/layout/sections/newsletter-dialog";
 
 export const metadata = {
   title: "Crateck | Soluciones de Ingeniería, Obra Civil y Eléctrica",
@@ -60,6 +61,9 @@ export default function Home() {
 
       {/* Contacto */}
       <ContactSection />
+
+      {/* Newsletter dialog trigger on scroll */}
+      <NewsletterDialogSection />
     </>
   );
 }

@@ -37,9 +37,7 @@ export const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
-    <header
-      className="shadow-inner sticky top-0 z-40 flex justify-between items-center h-16 p-2 bg-card border border-secondary w-full lg:w-[75%] lg:max-w-screen-xl lg:mx-auto lg:top-4 lg:rounded-2xl"
-    >
+    <header className="shadow-inner sticky top-0 z-40 flex justify-between items-center h-16 p-2 bg-card border border-secondary w-full lg:w-[75%] lg:max-w-screen-xl lg:mx-auto lg:top-4 lg:rounded-2xl">
       <Link href="/" className="font-bold text-lg flex items-center">
         <div className="h-36 w-[220px] relative">
           <Image
@@ -93,7 +91,12 @@ export const Navbar = () => {
               </SheetHeader>
 
               <div className="flex flex-col gap-2">
-                <Button onClick={() => setIsOpen(false)} asChild variant="ghost" className="justify-start text-base font-semibold">
+                <Button
+                  onClick={() => setIsOpen(false)}
+                  asChild
+                  variant="ghost"
+                  className="justify-start text-base font-semibold"
+                >
                   <Link href="/">Inicio</Link>
                 </Button>
 
@@ -114,13 +117,28 @@ export const Navbar = () => {
                   ))}
                 </div>
 
-                <Button onClick={() => setIsOpen(false)} asChild variant="ghost" className="justify-start text-base font-semibold">
+                <Button
+                  onClick={() => setIsOpen(false)}
+                  asChild
+                  variant="ghost"
+                  className="justify-start text-base font-semibold"
+                >
                   <Link href="/#proyectos-carousel">Proyectos</Link>
                 </Button>
-                <Button onClick={() => setIsOpen(false)} asChild variant="ghost" className="justify-start text-base font-semibold">
+                <Button
+                  onClick={() => setIsOpen(false)}
+                  asChild
+                  variant="ghost"
+                  className="justify-start text-base font-semibold"
+                >
                   <Link href="/#nosotros">Nosotros</Link>
                 </Button>
-                <Button onClick={() => setIsOpen(false)} asChild variant="ghost" className="justify-start text-base font-semibold">
+                <Button
+                  onClick={() => setIsOpen(false)}
+                  asChild
+                  variant="ghost"
+                  className="justify-start text-base font-semibold"
+                >
                   <Link href="/#contacto">Contacto</Link>
                 </Button>
               </div>
@@ -144,12 +162,15 @@ export const Navbar = () => {
 
       {/* Desktop */}
       <div className="hidden lg:flex items-center mx-auto space-x-1">
-        <Link href="/" className="text-base px-4 py-2 hover:bg-accent hover:text-accent-foreground rounded-md transition-colors">
+        <Link
+          href="/"
+          className="text-base px-4 py-2 hover:bg-accent/50 hover:text-accent-foreground rounded-md transition-colors"
+        >
           Inicio
         </Link>
 
         <div className="relative group">
-          <button className="text-base px-4 py-2 hover:bg-accent hover:text-accent-foreground rounded-md flex items-center">
+          <button className="text-base px-4 py-2 hover:bg-accent/50 hover:text-accent-foreground rounded-md flex items-center">
             Soluciones
             <svg
               className="ml-1 h-3 w-3 transition-transform group-hover:rotate-180"
@@ -157,7 +178,12 @@ export const Navbar = () => {
               stroke="currentColor"
               viewBox="0 0 24 24"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 9l-7 7-7-7"
+              />
             </svg>
           </button>
 
@@ -167,7 +193,7 @@ export const Navbar = () => {
                 <Link
                   key={href}
                   href={href}
-                  className="block select-none space-y-1 rounded-md p-3 leading-none no-underline transition-colors hover:bg-accent hover:text-accent-foreground"
+                  className="block select-none space-y-1 rounded-md p-3 leading-none no-underline transition-colors hover:bg-accent/50 hover:text-accent-foreground"
                 >
                   <div className="text-sm font-medium">{label}</div>
                   <p className="text-xs text-muted-foreground">{description}</p>
@@ -177,19 +203,31 @@ export const Navbar = () => {
           </div>
         </div>
 
-        <Link href="/renta-de-equipo" className="text-base px-4 py-2 hover:bg-accent hover:text-accent-foreground rounded-md transition-colors">
+        <Link
+          href="/renta-de-equipo"
+          className="text-base px-4 py-2 hover:bg-accent/50 hover:text-accent-foreground rounded-md transition-colors"
+        >
           Renta de maquinaria
         </Link>
 
-        <Link href="/#proyectos-carousel" className="text-base px-4 py-2 hover:bg-accent hover:text-accent-foreground rounded-md transition-colors">
+        <Link
+          href="/#proyectos-carousel"
+          className="text-base px-4 py-2 hover:bg-accent/50 hover:text-accent-foreground rounded-md transition-colors"
+        >
           Proyectos
         </Link>
 
-        <Link href="/#nosotros" className="text-base px-4 py-2 hover:bg-accent hover:text-accent-foreground rounded-md transition-colors">
+        <Link
+          href="/#nosotros"
+          className="text-base px-4 py-2 hover:bg-accent/50 hover:text-accent-foreground rounded-md transition-colors"
+        >
           Nosotros
         </Link>
 
-        <Link href="/#contacto" className="text-base px-4 py-2 hover:bg-accent hover:text-accent-foreground rounded-md transition-colors">
+        <Link
+          href="/#contacto"
+          className="text-base px-4 py-2 hover:bg-accent/50 hover:text-accent-foreground rounded-md transition-colors"
+        >
           Contacto
         </Link>
       </div>
