@@ -30,7 +30,7 @@ export async function POST(req: NextRequest) {
     });
 
     const data = await response.json();
-console.log(data)
+
     // ✅ Detectar si ya está suscrito
     const alreadySubscribed =
       data?.message?.toLowerCase().includes("already subscribed") ||
