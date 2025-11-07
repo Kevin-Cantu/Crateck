@@ -82,7 +82,7 @@ export const EquipmentRentalSection = () => {
       )}\n\n¿Podrían proporcionarme más información sobre disponibilidad y condiciones de renta?\n\nGracias.`;
 
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/528132192308?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/528131295300?text=${encodedMessage}`;
     window.open(whatsappUrl, "_blank");
   };
 

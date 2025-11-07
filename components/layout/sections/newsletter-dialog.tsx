@@ -19,6 +19,7 @@ export const NewsletterDialogSection = () => {
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
+  const [submitting, setSubmitting] = useState(false);
 
   // Only show once per session to avoid spamming users
   const shouldShow = useCallback(() => {
@@ -41,13 +42,36 @@ export const NewsletterDialogSection = () => {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, [shouldShow]);
-
-  const onSubmit = (e: React.FormEvent) => {
+  
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Integrate with your newsletter provider API
-    setOpen(false);
-  };
+    if (submitting) return;
+    setSubmitting(true);
+  
+    try {
+      const res = await fetch("/api/suscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, name }),
+      });
+  
+      const data = await res.json();
 
+      if (!res.ok || data.error) {
+        throw new Error(data.error?.message || data.error || "Error al suscribirse");
+      }
+  
+      alert("✅ ¡Gracias por suscribirte! Revisa tu correo para confirmar tu suscripción.");
+      setOpen(false);
+      setEmail("");
+      setName("");
+    } catch (err) {
+      console.error("❌ Error al suscribirse:", err);
+      alert("Hubo un problema al registrarte. Intenta de nuevo más tarde.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent className="max-w-2xl p-0 overflow-hidden border border-border/60 bg-card">
@@ -162,7 +186,9 @@ export const NewsletterDialogSection = () => {
                 <Button type="button" variant="secondary" onClick={() => setOpen(false)}>
                   Ahora no
                 </Button>
-                <Button type="submit" className="font-semibold">Suscribirme</Button>
+                <Button type="submit" className="font-semibold" disabled={submitting}>
+                  {submitting ? "Enviando..." : "Suscribirme"}
+                </Button>
               </DialogFooter>
             </form>
           </div>
