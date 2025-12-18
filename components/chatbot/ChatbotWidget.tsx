@@ -151,7 +151,7 @@ const Bubble = ({ role, children }: { role: Role; children: React.ReactNode }) =
       <div className="relative">
         <div
           className={cn(
-            "max-w-[84vw] sm:max-w-[320px] rounded-2xl px-3 py-2 text-sm shadow-md border ring-1",
+            "max-w-[84vw] sm:max-w-[320px] rounded-2xl px-3 py-2 text-sm  shadow-md border ring-1",
             "animate-in fade-in-0 zoom-in-95 slide-in-from-bottom-2",
             isBot
               ? "bg-muted/80 text-foreground border-border ring-black/5 dark:ring-white/5"

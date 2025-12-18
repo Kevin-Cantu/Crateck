@@ -22,7 +22,7 @@ export const ObraCivilSection = () => {
   ];
 
   return (
-    <section id="obra-civil" className="py-24   bg-gradient-to-br from-stone-100 via-slate-100 to-gray-100 dark:from-slate-800 dark:via-slate-900 dark:to-gray-900">
+    <section id="obra-civil" className="py-24   bg-gradient-to-br from-stone-100 via-slate-100 to-gray-300 dark:from-slate-800 dark:via-slate-900 dark:to-gray-900">
       <div className="container">
         {/* Encabezado principal */}
         <div className="text-center mb-8 ">

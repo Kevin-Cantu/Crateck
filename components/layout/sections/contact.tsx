@@ -87,7 +87,7 @@ export const ContactSection = () => {
       "Enviado desde el sitio web de Crateck",
     ].join("\n");
 
-    const mailToLink = `mailto:info@grupocrateck.com?subject=${encodeURIComponent(
+    const mailToLink = `mailto:barbacoaensalsa@gmail.com?subject=${encodeURIComponent(
       `${subject} - ${name}`
     )}&body=${encodeURIComponent(body)}`;
 
@@ -208,7 +208,7 @@ export const ContactSection = () => {
                   </Button>
                   <Button
                     asChild
-                    className="w-full text-primary-foreground bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90"
+                    className="w-full text-primary-foreground !bg-green-500  "
                   >
                     <a
                       href="https://wa.me/528131295300"
@@ -368,7 +368,7 @@ export const ContactSection = () => {
 
                     <Button
                       type="submit"
-                      className="w-full font-semibold px-5 py-2.5 text-sm text-primary-foreground bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90"
+                      className="w-full !bg-primary font-semibold px-5 py-2.5 text-sm text-primary-foreground "
                       disabled={form.formState.isSubmitting}
                     >
                       {form.formState.isSubmitting ? "Enviando..." : "Enviar consulta"}

@@ -88,7 +88,7 @@ export const NewsletterInlineSection = () => {
             </FieldShell>
           </div>
           <div className="md:col-span-1 flex">
-            <Button type="submit" className="w-full h-11 font-semibold" disabled={submitting}>
+            <Button type="submit" className="w-full h-11 font-semibold !bg-primary" disabled={submitting}>
               {submitting ? "Enviando..." : "Suscribirme"}
             </Button>
           </div>

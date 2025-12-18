@@ -110,7 +110,7 @@ export const Navbar = () => {
                       onClick={() => setIsOpen(false)}
                       asChild
                       variant="ghost"
-                      className="justify-start text-base font-semibold pl-6"
+                      className="justify-start text-base font-semibold pl-6 "
                     >
                       <Link href={href}>{label}</Link>
                     </Button>
@@ -193,7 +193,7 @@ export const Navbar = () => {
                 <Link
                   key={href}
                   href={href}
-                  className="block select-none space-y-1 rounded-md p-3 leading-none no-underline transition-colors hover:bg-accent/50 hover:text-accent-foreground"
+                  className="block select-none space-y-1 rounded-md p-3 leading-none no-underline transition-colors hover:bg-accent/50 "
                 >
                   <div className="text-sm font-medium">{label}</div>
                   <p className="text-xs text-muted-foreground">{description}</p>

@@ -147,8 +147,8 @@ export const NewsletterDialogSection = () => {
             
             </DialogHeader>
 
-            <form onSubmit={onSubmit} className="space-y-4 mt-2">
-              <div className="grid gap-2">
+            <form onSubmit={onSubmit} className="space-y-4 mt-3">
+              <div className="grid gap-1">
                 <FieldLabel htmlFor="newsletter-name">Nombre</FieldLabel>
                 <FieldShell>
                   <FieldIcon>
@@ -163,7 +163,7 @@ export const NewsletterDialogSection = () => {
                   />
                 </FieldShell>
               </div>
-              <div className="grid gap-2">
+              <div className="grid gap-1">
                 <FieldLabel htmlFor="newsletter-email">Correo electrónico</FieldLabel>
                 <FieldShell>
                   <FieldIcon>
@@ -183,10 +183,10 @@ export const NewsletterDialogSection = () => {
 
 
               <DialogFooter className="gap-2 sm:gap-3 pt-2">
-                <Button type="button" variant="secondary" onClick={() => setOpen(false)}>
+                <Button type="button"  variant="destructive" onClick={() => setOpen(false)}>
                   Ahora no
                 </Button>
-                <Button type="submit" className="font-semibold" disabled={submitting}>
+                <Button type="submit" className="font-semibold !bg-primary" disabled={submitting}>
                   {submitting ? "Enviando..." : "Suscribirme"}
                 </Button>
               </DialogFooter>
