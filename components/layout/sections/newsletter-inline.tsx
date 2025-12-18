@@ -64,7 +64,7 @@ export const NewsletterInlineSection = () => {
               <Input
                 id="inline-name"
                 placeholder="Tu nombre"
-                className="border-0 bg-background focus-visible:ring-0 h-11 pl-10"
+                className="border-0 bg-background focus-visible:ring-0 pl-10"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
@@ -81,14 +81,14 @@ export const NewsletterInlineSection = () => {
                 type="email"
                 placeholder="tu@correo.com"
                 required
-                className="border-0 bg-background focus-visible:ring-0 h-11 pl-10"
+                className="border-0 bg-background focus-visible:ring-0 pl-10"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </FieldShell>
           </div>
-          <div className="md:col-span-1 flex">
-            <Button type="submit" className="w-full h-11 font-semibold !bg-primary" disabled={submitting}>
+          <div className="md:col-span-1 flex ">
+            <Button type="submit"   className="w-full mt-[7px] font-semibold" disabled={submitting}>
               {submitting ? "Enviando..." : "Suscribirme"}
             </Button>
           </div>

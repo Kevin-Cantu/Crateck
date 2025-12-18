@@ -14,6 +14,7 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+import Image from "next/image";
 
 interface Proyecto {
   id: string;
@@ -26,21 +27,112 @@ interface Proyecto {
 
 // Proyectos reales de Crateck basados en el PDF
 const proyectos: Proyecto[] = [
-  { id: "A", titulo: "Red de Distribución Parque Eólico La Mesa", categoria: "Obra Eléctrica", descripcion: "Red de distribución de media tensión para parque eólico La Mesa en Güemez, Tamaulipas. Incluye cimentaciones especializadas, canalizaciones subterráneas y sistemas de conexión.", imagen1: "/proyectos/A1.jpg", imagen2: "/proyectos/A2.jpg" },
-  { id: "B", titulo: "Transición Aérea-Subterránea Media Tensión", categoria: "Obra Eléctrica", descripcion: "Transición aérea-subterránea de media tensión, instalación de registro tapa cuadrada y derivadores de cuatro vías con sistemas de protección avanzados.", imagen1: "/proyectos/B1.jpg", imagen2: "/proyectos/B2.jpg" },
-  { id: "C", titulo: "Recalibración de Línea de Media Tensión", categoria: "Obra Eléctrica", descripcion: "Recalibración de línea de media tensión, retiro de postes, instalación de torrecillas y cambio de crucetas con equipos especializados.", imagen1: "/proyectos/C1.jpg", imagen2: "/proyectos/C2.jpg" },
-  { id: "D", titulo: "Coordinación con CFE - Bloqueo de Recierres", categoria: "Obra Eléctrica", descripcion: "Durante trabajos de recalibración se trabaja en conjunto con CFE para bloqueo de recierres y anillado de circuitos, garantizando seguridad operativa.", imagen1: "/proyectos/D1.jpg", imagen2: "/proyectos/D2.jpg" },
-  { id: "E", titulo: "Revestimiento de Canal de Concreto", categoria: "Obra Civil", descripcion: "Elaboración y construcción de revestimiento de canal a cielo abierto hecho de concreto y malla electrosoldada con acabados de alta durabilidad.", imagen1: "/proyectos/E1.jpg", imagen2: "/proyectos/E2.jpg" },
-  { id: "F", titulo: "Cableado de Señal VYNMSA Ramos Arizpe", categoria: "Obra Eléctrica", descripcion: "Cableado de señal para electronivel en VYNMSA Ramos Arizpe Industrial Park con sistemas de monitoreo y control automatizado.", imagen1: "/proyectos/F1.jpg", imagen2: "/proyectos/F2.jpg" },
-  { id: "G", titulo: "Instalación de 450 Módulos Fotovoltaicos", categoria: "Energía Solar", descripcion: "Instalación de 450 módulos fotovoltaicos con estructura de montaje, cableado DC/AC y sistemas de monitoreo para máxima eficiencia energética.", imagen1: "/proyectos/G1.jpg", imagen2: "/proyectos/G2.jpg" },
-  { id: "H", titulo: "Sistema Eléctrico Oficinas MEKRA LANG", categoria: "Obra Eléctrica", descripcion: "Sistema eléctrico completo para oficinas empresa MEKRA LANG en VYNMSA Escobedo Industrial Park, incluyendo tableros, alumbrado y fuerza.", imagen1: "/proyectos/H1.jpg", imagen2: "/proyectos/H2.jpg" },
-  { id: "I", titulo: "Sistema de Tierras Nave Industrial Branco", categoria: "Obra Eléctrica", descripcion: "Sistema de tierras en nave industrial Branco en VYNMSA Escobedo Industrial Park II con pozos de tierra y conexiones equipotenciales.", imagen1: "/proyectos/I1.jpg", imagen2: "/proyectos/I2.jpg" },
-  { id: "J", titulo: "Sistema Eléctrico Nave VII Monterrey", categoria: "Obra Eléctrica", descripcion: "Sistema eléctrico nave VII en VYNMSA Monterrey Industrial Park con instalaciones de alumbrado industrial, fuerza y sistemas de control.", imagen1: "/proyectos/J1.jpg", imagen2: "/proyectos/J2.jpg" },
-  { id: "K", titulo: "Colado de Guarniciones Parque Industrial GP", categoria: "Obra Civil", descripcion: "Colado de guarniciones y banquetas en parque industrial GP con concreto especificado, acabados de alta calidad y drenaje integrado.", imagen1: "/proyectos/K1.jpg", imagen2: "/proyectos/K2.jpg" },
+  {
+    id: "A",
+    titulo: "Red de Distribución Parque Eólico La Mesa",
+    categoria: "Obra Eléctrica",
+    descripcion:
+      "Red de distribución de media tensión para parque eólico La Mesa en Güemez, Tamaulipas. Incluye cimentaciones especializadas, canalizaciones subterráneas y sistemas de conexión.",
+    imagen1: "/proyectos/A1.jpg",
+    imagen2: "/proyectos/A2.jpg",
+  },
+  {
+    id: "B",
+    titulo: "Transición Aérea-Subterránea Media Tensión",
+    categoria: "Obra Eléctrica",
+    descripcion:
+      "Transición aérea-subterránea de media tensión, instalación de registro tapa cuadrada y derivadores de cuatro vías con sistemas de protección avanzados.",
+    imagen1: "/proyectos/B1.jpg",
+    imagen2: "/proyectos/B2.jpg",
+  },
+  {
+    id: "C",
+    titulo: "Recalibración de Línea de Media Tensión",
+    categoria: "Obra Eléctrica",
+    descripcion:
+      "Recalibración de línea de media tensión, retiro de postes, instalación de torrecillas y cambio de crucetas con equipos especializados.",
+    imagen1: "/proyectos/C1.jpg",
+    imagen2: "/proyectos/C2.jpg",
+  },
+  {
+    id: "D",
+    titulo: "Coordinación con CFE - Bloqueo de Recierres",
+    categoria: "Obra Eléctrica",
+    descripcion:
+      "Durante trabajos de recalibración se trabaja en conjunto con CFE para bloqueo de recierres y anillado de circuitos, garantizando seguridad operativa.",
+    imagen1: "/proyectos/D1.jpg",
+    imagen2: "/proyectos/D2.jpg",
+  },
+  {
+    id: "E",
+    titulo: "Revestimiento de Canal de Concreto",
+    categoria: "Obra Civil",
+    descripcion:
+      "Elaboración y construcción de revestimiento de canal a cielo abierto hecho de concreto y malla electrosoldada con acabados de alta durabilidad.",
+    imagen1: "/proyectos/E1.jpg",
+    imagen2: "/proyectos/E2.jpg",
+  },
+  {
+    id: "F",
+    titulo: "Cableado de Señal VYNMSA Ramos Arizpe",
+    categoria: "Obra Eléctrica",
+    descripcion:
+      "Cableado de señal para electronivel en VYNMSA Ramos Arizpe Industrial Park con sistemas de monitoreo y control automatizado.",
+    imagen1: "/proyectos/F1.jpg",
+    imagen2: "/proyectos/F2.jpg",
+  },
+  {
+    id: "G",
+    titulo: "Instalación de 450 Módulos Fotovoltaicos",
+    categoria: "Energía Solar",
+    descripcion:
+      "Instalación de 450 módulos fotovoltaicos con estructura de montaje, cableado DC/AC y sistemas de monitoreo para máxima eficiencia energética.",
+    imagen1: "/proyectos/G1.jpg",
+    imagen2: "/proyectos/G2.jpg",
+  },
+  {
+    id: "H",
+    titulo: "Sistema Eléctrico Oficinas MEKRA LANG",
+    categoria: "Obra Eléctrica",
+    descripcion:
+      "Sistema eléctrico completo para oficinas empresa MEKRA LANG en VYNMSA Escobedo Industrial Park, incluyendo tableros, alumbrado y fuerza.",
+    imagen1: "/proyectos/H1.jpg",
+    imagen2: "/proyectos/H2.jpg",
+  },
+  {
+    id: "I",
+    titulo: "Sistema de Tierras Nave Industrial Branco",
+    categoria: "Obra Eléctrica",
+    descripcion:
+      "Sistema de tierras en nave industrial Branco en VYNMSA Escobedo Industrial Park II con pozos de tierra y conexiones equipotenciales.",
+    imagen1: "/proyectos/I1.jpg",
+    imagen2: "/proyectos/I2.jpg",
+  },
+  {
+    id: "J",
+    titulo: "Sistema Eléctrico Nave VII Monterrey",
+    categoria: "Obra Eléctrica",
+    descripcion:
+      "Sistema eléctrico nave VII en VYNMSA Monterrey Industrial Park con instalaciones de alumbrado industrial, fuerza y sistemas de control.",
+    imagen1: "/proyectos/J1.jpg",
+    imagen2: "/proyectos/J2.jpg",
+  },
+  {
+    id: "K",
+    titulo: "Colado de Guarniciones Parque Industrial GP",
+    categoria: "Obra Civil",
+    descripcion:
+      "Colado de guarniciones y banquetas en parque industrial GP con concreto especificado, acabados de alta calidad y drenaje integrado.",
+    imagen1: "/proyectos/K1.jpg",
+    imagen2: "/proyectos/K2.jpg",
+  },
 ];
 
 export const ProyectosCarouselSection = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, align: "start" });
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: false,
+    align: "start",
+  });
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
@@ -80,16 +172,31 @@ export const ProyectosCarouselSection = () => {
   };
 
   return (
-    <section id="proyectos-carousel" className="py-24  bg-gradient-to-br from-slate-100 via-gray-100 to-slate-200 dark:from-slate-800 dark:via-slate-800 dark:to-gray-800">
+    <section
+      id="proyectos-carousel"
+      className="py-24  bg-gradient-to-br from-slate-100 via-gray-100 to-slate-200 dark:from-slate-800 dark:via-slate-800 dark:to-gray-800"
+    >
       <div className="container ">
         {/* Encabezado */}
         <div className="text-center mb-16">
           <Reveal as="div" delayMs={0}>
-            <h2 className="sm:text-4xl text-3xl text-slate-600 dark:text-slate-400 mb-2 tracking-wider font-medium uppercase">Proyectos Destacados</h2>
+            <h2 className="sm:text-4xl text-3xl text-slate-600 dark:text-slate-400 mb-2 tracking-wider font-medium uppercase">
+              Proyectos Destacados
+            </h2>
           </Reveal>
-          <Reveal as="h3" delayMs={60} className="text-xl md:text-3xl font-bold mb-6 text-slate-900 dark:text-slate-100">Experiencia que transforma industrias</Reveal>
+          <Reveal
+            as="h3"
+            delayMs={60}
+            className="text-xl md:text-3xl font-bold mb-6 text-slate-900 dark:text-slate-100"
+          >
+            Experiencia que transforma industrias
+          </Reveal>
           <Reveal as="div" delayMs={120}>
-            <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">Cada proyecto representa nuestro compromiso con la excelencia, la innovación y la satisfacción del cliente en soluciones de ingeniería.</p>
+            <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">
+              Cada proyecto representa nuestro compromiso con la excelencia, la
+              innovación y la satisfacción del cliente en soluciones de
+              ingeniería.
+            </p>
           </Reveal>
         </div>
 
@@ -98,10 +205,24 @@ export const ProyectosCarouselSection = () => {
           {/* Controles */}
           <div className="flex items-center justify-between mb-8">
             <div className="flex gap-2">
-              <Button variant="outline" size="icon" onClick={scrollPrev} disabled={!canScrollPrev} className="rounded-full focus:ring-0 focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0" onMouseDown={(e) => e.preventDefault()}>
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={scrollPrev}
+                disabled={!canScrollPrev}
+                className="rounded-full focus:ring-0 focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+                onMouseDown={(e) => e.preventDefault()}
+              >
                 <ChevronLeft className="h-4 w-4" />
               </Button>
-              <Button variant="outline" size="icon" onClick={scrollNext} disabled={!canScrollNext} className="rounded-full focus:ring-0 focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0" onMouseDown={(e) => e.preventDefault()}>
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={scrollNext}
+                disabled={!canScrollNext}
+                className="rounded-full focus:ring-0 focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+                onMouseDown={(e) => e.preventDefault()}
+              >
                 <ChevronRight className="h-4 w-4" />
               </Button>
             </div>
@@ -111,7 +232,11 @@ export const ProyectosCarouselSection = () => {
               {Array.from({ length: dotsCount }).map((_, index) => (
                 <button
                   key={index}
-                  className={`w-2 h-2 rounded-full transition-colors focus:outline-none ${index === selectedIndex ? "bg-slate-800 dark:bg-slate-200" : "bg-slate-300 dark:bg-slate-600"}`}
+                  className={`w-2 h-2 rounded-full transition-colors focus:outline-none ${
+                    index === selectedIndex
+                      ? "bg-slate-800 dark:bg-slate-200"
+                      : "bg-slate-300 dark:bg-slate-600"
+                  }`}
                   onClick={() => {
                     emblaApi?.scrollTo(index);
                     (document.activeElement as HTMLElement)?.blur();
@@ -126,7 +251,10 @@ export const ProyectosCarouselSection = () => {
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex">
               {proyectos.map((proyecto) => (
-                <div key={proyecto.id} className="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_50%] xl:flex-[0_0_50%] pl-4">
+                <div
+                  key={proyecto.id}
+                  className="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_50%] xl:flex-[0_0_50%] pl-4"
+                >
                   <Card className="h-full overflow-hidden shadow-md hover:shadow-lg transition-shadow">
                     <CardContent className="p-0 h-full">
                       <div className="relative">
@@ -136,23 +264,37 @@ export const ProyectosCarouselSection = () => {
                           onClick={() => abrirDialogo(proyecto)}
                           aria-label={`Ver detalles de ${proyecto.titulo}`}
                         >
-                          <img
+                          <Image
                             src={proyecto.imagen1}
-                            alt={`${proyecto.titulo}`}
+                            alt={proyecto.titulo}
+                            width={500} // ancho aproximado deseado
+                            height={300} // alto aproximado deseado
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                            style={{ display: "block", opacity: 1, visibility: "visible" }}
+                            style={{
+                              opacity: 1,
+                              visibility: "visible",
+                              display: "block",
+                            }}
+                            priority={false} // true si quieres que cargue inmediatamente, por ejemplo en hero
                           />
                           <span className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
                         </button>
 
                         {/* Badge */}
                         <div className="absolute top-4 left-4 z-10">
-                          <Badge variant="secondary" className="text-xs bg-white/90 text-slate-800 backdrop-blur-sm">{proyecto.categoria}</Badge>
+                          <Badge
+                            variant="secondary"
+                            className="text-xs bg-white/90 text-slate-800 backdrop-blur-sm"
+                          >
+                            {proyecto.categoria}
+                          </Badge>
                         </div>
 
                         {/* Overlay solo con título */}
                         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/60 to-transparent p-6">
-                          <h4 className="text-xl font-bold text-white leading-tight">{proyecto.titulo}</h4>
+                          <h4 className="text-xl font-bold text-white leading-tight">
+                            {proyecto.titulo}
+                          </h4>
                         </div>
                       </div>
                     </CardContent>
@@ -166,51 +308,65 @@ export const ProyectosCarouselSection = () => {
         {/* CTA */}
         <Reveal as="div" delayMs={240} className="text-center mt-12">
           <div className="inline-flex flex-col sm:flex-row gap-4">
-            <a href="/#contacto"><Button size="lg" className="font-semibold">Consulta tu proyecto</Button></a>
-            <a href="/#nosotros"><Button variant="outline" size="lg" className="font-semibold">Conoce más sobre nosotros</Button></a>
+            <a href="/#contacto">
+              <Button size="lg" className="font-semibold">
+                Consulta tu proyecto
+              </Button>
+            </a>
+            <a href="/#nosotros">
+              <Button variant="outline" size="lg" className="font-semibold">
+                Conoce más sobre nosotros
+              </Button>
+            </a>
           </div>
         </Reveal>
       </div>
 
       {/* Dialogo de detalles (solo mejoramos desktop, móvil intacto) */}
       <Dialog open={open} onOpenChange={setOpen}>
-  <DialogContent className="md:max-w-6xl md:p-8 sm:p-6 p-4 md:rounded-2xl md:shadow-xl">
-    {proyectoActivo && (
-      <div className="space-y-6">
-        {/* Header */}
-        <DialogHeader className="text-center md:text-left">
-          <DialogTitle className="text-2xl md:text-3xl font-bold">{proyectoActivo.titulo}</DialogTitle>
-          <DialogDescription className="text-sm md:text-base text-slate-600 dark:text-slate-300 mt-1">
-            {proyectoActivo.categoria}
-          </DialogDescription>
-        </DialogHeader>
+        <DialogContent className="md:max-w-6xl md:p-8 sm:p-6 p-4 md:rounded-2xl md:shadow-xl">
+          {proyectoActivo && (
+            <div className="space-y-6">
+              {/* Header */}
+              <DialogHeader className="text-center md:text-left">
+                <DialogTitle className="text-2xl md:text-3xl font-bold">
+                  {proyectoActivo.titulo}
+                </DialogTitle>
+                <DialogDescription className="text-sm md:text-base text-slate-600 dark:text-slate-300 mt-1">
+                  {proyectoActivo.categoria}
+                </DialogDescription>
+              </DialogHeader>
 
-        {/* Imágenes */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
-            <img
-              src={proyectoActivo.imagen1}
-              alt={`${proyectoActivo.titulo} - Imagen 1`}
-              className="w-full aspect-video object-cover"
-            />
-          </div>
-          <div className="rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
-            <img
-              src={proyectoActivo.imagen2}
-              alt={`${proyectoActivo.titulo} - Imagen 2`}
-              className="w-full aspect-video object-cover"
-            />
-          </div>
-        </div>
+              {/* Imágenes */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 relative w-full aspect-video">
+                  <Image
+                    src={proyectoActivo.imagen1}
+                    alt={`${proyectoActivo.titulo} - Imagen 1`}
+                    fill
+                    className="object-cover"
+                    priority={false} // true si es muy importante que cargue rápido
+                  />
+                </div>
+                <div className="rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 relative w-full aspect-video">
+                  <Image
+                    src={proyectoActivo.imagen2}
+                    alt={`${proyectoActivo.titulo} - Imagen 2`}
+                    fill
+                    className="object-cover"
+                    priority={true}
+                  />
+                </div>
+              </div>
 
-        {/* Descripción */}
-        <DialogDescription className="text-base md:text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
-          {proyectoActivo.descripcion}
-        </DialogDescription>
-      </div>
-    )}
-  </DialogContent>
-</Dialog>
+              {/* Descripción */}
+              <DialogDescription className="text-base md:text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
+                {proyectoActivo.descripcion}
+              </DialogDescription>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };

@@ -67,7 +67,7 @@ export const HeroSection = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
           }`}
         >
-          <p className="mt-6 text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl leading-relaxed">
+          <p className="mt-6 ml-1 text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl leading-relaxed">
             Construimos proyectos que generan{" "}
             <span className="text-primary font-semibold">valor</span>,{" "}
             <span className="text-accent font-semibold">seguridad</span> y{" "}
@@ -83,7 +83,7 @@ export const HeroSection = () => {
         >
           <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center">
             <a href="/#contacto">
-              <Button className="group px-6 py-4 text-base font-semibold bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-primary/25">
+              <Button className="group px-6 py-4 text-base font-semibold">
                 Agenda asesoría gratuita
                 <ArrowRight className="size-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
               </Button>

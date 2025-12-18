@@ -199,7 +199,7 @@ export const ContactSection = () => {
                   <Button
                     asChild
                     variant="secondary"
-                    className="w-full border border-primary/20 hover:border-primary/30"
+                    className="w-full "
                   >
                     <a href="tel:+528131295300">
                       <Phone className="w-4 h-4 mr-2" />

@@ -53,7 +53,7 @@ export const ObraCivilSection = () => {
                       <Icon
                         name={icon as keyof typeof icons}
                         size={36}
-                        className="text-stone-700 dark:text-stone-300 group-hover:text-stone-800 dark:group-hover:text-stone-200 transition-colors duration-500"
+                        className="text-stone-700 dark:text-stone-300 group-hover:text-stone-800 dark:group-hover:text-stone-800 transition-colors duration-500"
                       />
                     </div>
                     <div className="absolute -inset-2 bg-gradient-to-r from-stone-300 to-gray-300 dark:from-slate-600 dark:to-gray-600 rounded-2xl opacity-0 group-hover:opacity-15 transition-opacity duration-500 -z-10"></div>

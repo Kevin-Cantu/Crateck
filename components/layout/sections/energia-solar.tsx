@@ -65,7 +65,7 @@ export const EnergiaSolarSection = () => {
                 <Icon
                   name={icon as keyof typeof icons}
                   size={32}
-                  className="text-amber-600 dark:text-amber-400 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors duration-500"
+                  className="text-amber-600 dark:text-amber-400 group-hover:text-orange-600 dark:group-hover:text-orange-200 transition-colors duration-500"
                 />
               </div>
             </div>
@@ -94,7 +94,7 @@ export const EnergiaSolarSection = () => {
             <Icon
               name={icon as keyof typeof icons}
               size={32}
-              className="text-amber-600 dark:text-amber-400 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors duration-500"
+              className="text-amber-600 dark:text-amber-400 group-hover:text-orange-600 dark:group-hover:text-orange-200 transition-colors duration-500"
             />
           </div>
         </div>
