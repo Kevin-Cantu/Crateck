@@ -87,7 +87,7 @@ export const ContactSection = () => {
       "Enviado desde el sitio web de Crateck",
     ].join("\n");
 
-    const mailToLink = `mailto:barbacoaensalsa@gmail.com?subject=${encodeURIComponent(
+    const mailToLink = `mailto:info@grupocrateck.com?subject=${encodeURIComponent(
       `${subject} - ${name}`
     )}&body=${encodeURIComponent(body)}`;
 

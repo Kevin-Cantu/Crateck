@@ -345,7 +345,7 @@ export const ProyectosCarouselSection = () => {
                     alt={`${proyectoActivo.titulo} - Imagen 1`}
                     fill
                     className="object-cover"
-                    priority={false} // true si es muy importante que cargue rápido
+                    priority={true} // true si es muy importante que cargue rápido
                   />
                 </div>
                 <div className="rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 relative w-full aspect-video">
