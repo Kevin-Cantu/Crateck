@@ -144,7 +144,7 @@ export const EquipmentRentalSection = () => {
       <Separator className="my-4" />
 
       <Button className="w-full" onClick={generateWhatsAppMessage} size="lg">
-        Solicitar cotización
+      Hablar con un asesor
       </Button>
     </>
   );
