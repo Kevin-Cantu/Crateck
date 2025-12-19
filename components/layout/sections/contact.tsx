@@ -55,7 +55,7 @@ export const ContactSection = () => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       // Construir mailto
-      const email = "barbacoaensalsa@gmai"; // Destino
+      const email = "info@grupocrateck.com"; // Destino
       const subject = encodeURIComponent(values.subject);
       const body = encodeURIComponent(
         `Nombre: ${values.name}\n` +
