@@ -183,7 +183,7 @@ export const NewsletterDialogSection = () => {
                   <Button
                     type="button"
                     variant="destructive"
-                    className="p-2 text-black/80"
+                    className="p-2 text-black/80  dark:text-white"
                     onClick={() => setOpen(false)}
                   >
                     Ahora no
