@@ -306,20 +306,7 @@ export const ProyectosCarouselSection = () => {
         </Reveal>
 
         {/* CTA */}
-        <Reveal as="div" delayMs={240} className="text-center mt-12">
-          <div className="inline-flex flex-col sm:flex-row gap-4">
-            <a href="/#contacto">
-              <Button size="lg" className="font-semibold">
-                Consulta tu proyecto
-              </Button>
-            </a>
-            <a href="/#nosotros">
-              <Button variant="outline" size="lg" className="font-semibold">
-                Conoce más sobre nosotros
-              </Button>
-            </a>
-          </div>
-        </Reveal>
+      
       </div>
 
       {/* Dialogo de detalles (solo mejoramos desktop, móvil intacto) */}

@@ -1,17 +1,11 @@
 "use client";
 import React from "react";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Mail,
   Phone,
   MapPin,
   MessageCircle,
-  CheckCircle,
   User,
   Briefcase,
   MessageSquare,
@@ -26,7 +20,6 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-  FormDescription,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -40,17 +33,11 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 
 const formSchema = z.object({
-  name: z.string().min(2, "Nombre muy corto").max(255),
+  name: z.string().min(2, "Escriba su nombre").max(255),
   email: z.string().email("Email no válido"),
-  phone: z
-    .string()
-    .optional()
-    .refine(
-      (val) => !val || val.replace(/[^\d]/g, "").length >= 7,
-      "Número de teléfono no válido"
-    ),
+  phone: z.string().optional(),
   subject: z.string().min(2).max(255),
-  message: z.string().min(10, "Mensaje debe tener al menos 10 caracteres"),
+  message: z.string(),
 });
 
 export const ContactSection = () => {
@@ -65,35 +52,28 @@ export const ContactSection = () => {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    const { name, email, subject, message, phone } = values;
-    const contactInfoLines = [
-      `Nombre: ${name}`,
-      `Email: ${email}`,
-      phone ? `Teléfono: ${phone}` : null,
-    ].filter(Boolean) as string[];
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    try {
+      // Construir mailto
+      const email = "barbacoaensalsa@gmai"; // Destino
+      const subject = encodeURIComponent(values.subject);
+      const body = encodeURIComponent(
+        `Nombre: ${values.name}\n` +
+        `Email: ${values.email}\n` +
+        (values.phone ? `Teléfono: ${values.phone}\n` : "") +
+        `Mensaje:\n${values.message}`
+      );
 
-    const body = [
-      "Solicitud de contacto",
-      "",
-      ...contactInfoLines,
-      "",
-      `Tipo de proyecto: ${subject}`,
-      "",
-      "Mensaje:",
-      message,
-      "",
-      "---",
-      "Enviado desde el sitio web de Crateck",
-    ].join("\n");
+      // Abrir cliente de correo
+      window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
 
-    const mailToLink = `mailto:info@grupocrateck.com?subject=${encodeURIComponent(
-      `${subject} - ${name}`
-    )}&body=${encodeURIComponent(body)}`;
-
-    // Abrir el cliente de correo del usuario
-    window.location.href = mailToLink;
-  }
+      // Limpiar formulario
+      form.reset();
+    } catch (error) {
+      console.error(error);
+      alert("Ocurrió un error al generar el correo ❌");
+    }
+  };
 
   const contactMethods = [
     {
@@ -108,30 +88,11 @@ export const ContactSection = () => {
       primary: "info@grupocrateck.com",
       action: "mailto:info@grupocrateck.com",
     },
-    {
-      icon: MapPin,
-      title: "Ubicación",
-      primary: "México",
-      action: null as string | null,
-    },
-  ];
-
-  const benefits = [
-    "Asesoría técnica gratuita",
-    "Cotización en 48 horas",
-    "Diagnóstico inicial sin compromiso",
+    { icon: MapPin, title: "Ubicación", primary: "México", action: null },
   ];
 
   return (
     <section id="contacto" className="relative py-24 -mb-24 overflow-hidden">
-      {/* Fondo con gradientes usando la paleta */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-secondary/70 via-background to-background dark:from-secondary/20" />
-        <div className="absolute -top-24 -right-24 h-[420px] w-[420px] rounded-full bg-gradient-to-br from-primary/20 to-accent/20 blur-3xl" />
-        <div className="absolute -bottom-24 -left-24 h-[420px] w-[420px] rounded-full bg-gradient-to-tr from-accent/20 to-primary/20 blur-3xl" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(99,102,241,0.08),transparent_60%)]" />
-      </div>
-
       <div className="container relative">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl text-slate-600 dark:text-slate-400 mb-1 tracking-wider font-medium">
@@ -141,12 +102,12 @@ export const ContactSection = () => {
             Agenda tu asesoría gratuita
           </h3>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Cuéntanos sobre tu proyecto. Diseñamos e implementamos soluciones a la medida.
+            Cuéntanos sobre tu proyecto. Diseñamos e implementamos soluciones a
+            la medida.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
-          {/* Sidebar - Información y CTAs */}
           <div className="lg:col-span-1 space-y-6">
             <Card className="bg-card/90 backdrop-blur border border-primary/10 shadow-sm hover:shadow-md transition-shadow">
               <CardHeader className="pb-3">
@@ -166,7 +127,9 @@ export const ContactSection = () => {
                         <method.icon className="w-4 h-4 text-primary" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <div className="font-medium text-sm">{method.title}</div>
+                        <div className="font-medium text-sm">
+                          {method.title}
+                        </div>
                         {method.action ? (
                           <a
                             href={method.action}
@@ -175,32 +138,16 @@ export const ContactSection = () => {
                             {method.primary}
                           </a>
                         ) : (
-                          <div className="text-foreground">{method.primary}</div>
+                          <div className="text-foreground">
+                            {method.primary}
+                          </div>
                         )}
-                 
                       </div>
                     </div>
                   </div>
                 ))}
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2">
-                  {benefits.map((b, i) => (
-                    <div
-                      key={i}
-                      className="flex items-center gap-2 rounded-md border border-border/60 bg-muted/30 px-3 py-2 text-sm"
-                    >
-                      <CheckCircle className="w-4 h-4 text-green-500" />
-                      <span className="text-foreground/90">{b}</span>
-                    </div>
-                  ))}
-                </div>
-
                 <div className="border-t border-border/60 pt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <Button
-                    asChild
-                    variant="secondary"
-                    className="w-full "
-                  >
+                  <Button asChild variant="default" className="w-full ">
                     <a href="tel:+528131295300">
                       <Phone className="w-4 h-4 mr-2" />
                       Llamar ahora
@@ -208,12 +155,13 @@ export const ContactSection = () => {
                   </Button>
                   <Button
                     asChild
-                    className="w-full text-primary-foreground !bg-green-500  "
+                    className="w-full text-primary-foreground bg-green-500 hover:bg-green-600 transition-colors duration-300"
                   >
                     <a
                       href="https://wa.me/528131295300"
                       target="_blank"
                       rel="noopener noreferrer"
+                      className="flex items-center justify-center"
                     >
                       <MessageCircle className="w-4 h-4 mr-2" />
                       WhatsApp
@@ -224,18 +172,19 @@ export const ContactSection = () => {
             </Card>
           </div>
 
-          {/* Formulario */}
           <div className="lg:col-span-2">
             <Card className="bg-card/90 backdrop-blur border border-primary/10 shadow-sm">
               <CardHeader className="pb-2">
                 <CardTitle className="text-base md:text-lg">
                   Envíanos tu consulta
                 </CardTitle>
-       
               </CardHeader>
               <CardContent>
                 <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+                  <form
+                    onSubmit={form.handleSubmit(onSubmit)}
+                    className="space-y-5"
+                  >
                     <FormField
                       control={form.control}
                       name="name"
@@ -256,7 +205,6 @@ export const ContactSection = () => {
                         </FormItem>
                       )}
                     />
-
                     <div className="grid md:grid-cols-2 gap-4">
                       <FormField
                         control={form.control}
@@ -310,7 +258,10 @@ export const ContactSection = () => {
                           <FormLabel>Tipo de proyecto *</FormLabel>
                           <div className="relative">
                             <Briefcase className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                            <Select
+                              onValueChange={field.onChange}
+                              defaultValue={field.value}
+                            >
                               <FormControl>
                                 <SelectTrigger className="pl-9">
                                   <SelectValue placeholder="Selecciona el tipo de proyecto" />
@@ -358,24 +309,21 @@ export const ContactSection = () => {
                               />
                             </div>
                           </FormControl>
-                          <FormDescription>
-                            Cuanta más información compartas, mejor podremos ayudarte.
-                          </FormDescription>
                           <FormMessage />
                         </FormItem>
                       )}
                     />
 
-                    <Button
-                      type="submit"
-                      className="w-full !bg-primary font-semibold px-5 py-2.5 text-sm text-primary-foreground "
-                      disabled={form.formState.isSubmitting}
-                    >
-                      {form.formState.isSubmitting ? "Enviando..." : "Enviar consulta"}
+                    <Button asChild className="w-full">
+                      <button
+                        type="submit"
+                        className="w-full bg-primary text-white rounded-md px-4 py-2
+                                   hover:bg-primary/80 transition-colors duration-300"
+                        disabled={form.formState.isSubmitting}
+                      >
+                        {form.formState.isSubmitting ? "Enviando..." : "Enviar consulta"}
+                      </button>
                     </Button>
-                    <p className="text-[11px] text-muted-foreground text-center">
-                      Al enviar este formulario, se abrirá tu cliente de correo para completar el envío.
-                    </p>
                   </form>
                 </Form>
               </CardContent>

@@ -7,28 +7,34 @@ export const EnergiaSolarSection = () => {
     {
       icon: "Wrench",
       title: "Ingeniería y diseño de sistemas fotovoltaicos",
-      description: "Desarrollamos soluciones personalizadas según la demanda y operación de cada cliente.",
+      description:
+        "Desarrollamos soluciones personalizadas según la demanda y operación de cada cliente.",
     },
     {
       icon: "ClipboardList",
       title: "Gestión y administración de proyectos solares",
-      description: "Coordinamos cada etapa del proyecto asegurando tiempos, calidad y cumplimiento normativo.",
+      description:
+        "Coordinamos cada etapa del proyecto asegurando tiempos, calidad y cumplimiento normativo.",
     },
     {
       icon: "Building2",
       title: "Instalación y construcción especializada",
-      description: "Ejecutamos instalaciones con los más altos estándares de seguridad y desempeño técnico.",
+      description:
+        "Ejecutamos instalaciones con los más altos estándares de seguridad y desempeño técnico.",
     },
     {
       icon: "Settings",
       title: "Monitoreo, mantenimiento y operación (O&M)",
-      description: "Brindamos servicios postventa para garantizar el rendimiento continuo del sistema.",
+      description:
+        "Brindamos servicios postventa para garantizar el rendimiento continuo del sistema.",
     },
-
   ];
 
   return (
-    <section id="energia-solar" className="py-24   sm:py-32 bg-gradient-to-br from-amber-50/50 via-orange-50/30 to-yellow-50/50 dark:from-slate-900 dark:via-orange-950/20 dark:to-slate-800">
+    <section
+      id="energia-solar"
+      className="py-24   sm:py-32 bg-gradient-to-br from-amber-50/50 via-orange-50/30 to-yellow-50/50 dark:from-slate-900 dark:via-orange-950/20 dark:to-slate-800"
+    >
       <div className="container ">
         {/* Encabezado principal */}
         <div className="text-center mb-16 ">
@@ -39,85 +45,115 @@ export const EnergiaSolarSection = () => {
             Impulsamos el futuro con soluciones fotovoltaicas a la medida
           </h3>
           <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto mb-8 leading-relaxed">
-            Transformamos la energía del sol en soluciones rentables y sostenibles para tu industria, 
-            con tecnología de vanguardia y servicios integrales.
+            Transformamos la energía del sol en soluciones rentables y
+            sostenibles para tu industria, con tecnología de vanguardia y
+            servicios integrales.
           </p>
         </div>
 
-    {/* Servicios */}
-<div className="mb-8">
-  <h4 className="text-2xl font-bold text-center mb-12 text-slate-800 dark:text-slate-200 tracking-wide">
-    NUESTROS SERVICIOS
-  </h4>
+        {/* Servicios */}
+        <div className="mb-8">
+          <h4 className="text-2xl font-bold text-center mb-12 text-slate-800 dark:text-slate-200 tracking-wide">
+            NUESTROS SERVICIOS
+          </h4>
 
-  <div className="max-w-7xl mx-auto flex flex-col items-center gap-10">
-    
-    {/* Fila superior: 3 cards */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full items-stretch">
-      {services.slice(0, 3).map(({ icon, title, description }) => (
-        <Card
-          key={title}
-          className="group h-full flex flex-col justify-between bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm border-orange-100 dark:border-slate-700 hover:shadow-xl transition-all duration-500 hover:scale-[1.02]"
-        >
-          <CardHeader className="text-center pb-4">
-            <div className="relative mb-4 mx-auto w-fit">
-              <div className="bg-gradient-to-br from-amber-100 to-orange-100 dark:from-orange-900/30 dark:to-amber-900/30 p-4 rounded-xl group-hover:from-amber-200 group-hover:to-orange-200 dark:group-hover:from-orange-800/50 dark:group-hover:to-amber-800/50 transition-all duration-500">
-                <Icon
-                  name={icon as keyof typeof icons}
-                  size={32}
-                  className="text-amber-600 dark:text-amber-400 group-hover:text-orange-600 dark:group-hover:text-orange-200 transition-colors duration-500"
-                />
-              </div>
+          <div className="max-w-7xl mx-auto flex flex-col items-center gap-10">
+            {/* Fila superior: 3 cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full items-stretch">
+              {services.slice(0, 3).map(({ icon, title, description }) => (
+                <Card
+                  key={title}
+                  className="group h-full flex flex-col justify-between bg-white/90 dark:bg-slate-800/90
+                     backdrop-blur-sm border-orange-100 dark:border-slate-700 shadow transition-all duration-500
+                     hover:shadow-2xl hover:scale-[1.02]"
+                >
+                  <CardHeader className="text-center pb-4">
+                    <div className="relative mb-4 mx-auto w-fit">
+                      <div
+                        className="bg-gradient-to-br from-amber-100 to-orange-100 dark:from-orange-900/30 dark:to-amber-900/30
+                           p-4 rounded-xl transition-all duration-500
+                           group-hover:from-amber-200 group-hover:to-orange-200
+                           dark:group-hover:from-orange-800/50 dark:group-hover:to-amber-800/50"
+                      >
+                        <Icon
+                          name={icon as keyof typeof icons}
+                          size={32}
+                          className="text-amber-600 dark:text-amber-400
+                             group-hover:text-orange-600 dark:group-hover:text-orange-200
+                             transition-colors duration-500"
+                        />
+                      </div>
+                      <div
+                        className="absolute -inset-2 bg-gradient-to-r from-amber-200 to-orange-300
+                           dark:from-orange-700 dark:to-amber-700 rounded-2xl
+                           opacity-0 group-hover:opacity-20 transition-opacity duration-500 -z-10"
+                      ></div>
+                    </div>
+                    <CardTitle className="text-xl leading-tight text-slate-800 dark:text-slate-200 px-2">
+                      {title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-center px-4 flex-grow flex items-center justify-center">
+                    <p className="text-slate-600 dark:text-slate-300 text-lg leading-relaxed">
+                      {description}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
-            <CardTitle className="text-xl leading-tight text-slate-800 dark:text-slate-200 px-2">
-              {title}
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="text-center px-4 flex-grow flex items-center justify-center">
-            <p className="text-slate-600 dark:text-slate-300 text-lg leading-relaxed">
-              {description}
-            </p>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
 
-    <div className="flex justify-center w-full">
-  {services.slice(3, 4).map(({ icon, title, description }) => (
-    <Card
-      key={title}
-      className="group h-full flex flex-col justify-between bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm border-orange-100 dark:border-slate-700 hover:shadow-xl transition-all duration-500 hover:scale-[1.02] w-full sm:w-[340px] md:w-[380px]"
-    >
-      <CardHeader className="text-center pb-4">
-        <div className="relative mb-4 mx-auto w-fit">
-          <div className="bg-gradient-to-br from-amber-100 to-orange-100 dark:from-orange-900/30 dark:to-amber-900/30 p-4 rounded-xl group-hover:from-amber-200 group-hover:to-orange-200 dark:group-hover:from-orange-800/50 dark:group-hover:to-amber-800/50 transition-all duration-500">
-            <Icon
-              name={icon as keyof typeof icons}
-              size={32}
-              className="text-amber-600 dark:text-amber-400 group-hover:text-orange-600 dark:group-hover:text-orange-200 transition-colors duration-500"
-            />
+            {/* Fila inferior: 1 card centrado */}
+            <div className="flex justify-center w-full">
+              {services.slice(3, 4).map(({ icon, title, description }) => (
+                <Card
+                  key={title}
+                  className="group h-full flex flex-col justify-between bg-white/90 dark:bg-slate-800/90
+                     backdrop-blur-sm border-orange-100 dark:border-slate-700 shadow transition-all duration-500
+                     hover:shadow-2xl hover:scale-[1.02] w-full sm:w-[340px] md:w-[380px]"
+                >
+                  <CardHeader className="text-center pb-4">
+                    <div className="relative mb-4 mx-auto w-fit">
+                      <div
+                        className="bg-gradient-to-br from-amber-100 to-orange-100 dark:from-orange-900/30 dark:to-amber-900/30
+                           p-4 rounded-xl transition-all duration-500
+                           group-hover:from-amber-200 group-hover:to-orange-200
+                           dark:group-hover:from-orange-800/50 dark:group-hover:to-amber-800/50"
+                      >
+                        <Icon
+                          name={icon as keyof typeof icons}
+                          size={32}
+                          className="text-amber-600 dark:text-amber-400
+                             group-hover:text-orange-600 dark:group-hover:text-orange-200
+                             transition-colors duration-500"
+                        />
+                      </div>
+                      <div
+                        className="absolute -inset-2 bg-gradient-to-r from-amber-200 to-orange-300
+                           dark:from-orange-700 dark:to-amber-700 rounded-2xl
+                           opacity-0 group-hover:opacity-20 transition-opacity duration-500 -z-10"
+                      ></div>
+                    </div>
+                    <CardTitle className="text-xl leading-tight text-slate-800 dark:text-slate-200 px-2">
+                      {title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-center px-4 flex-grow flex items-center justify-center">
+                    <p className="text-slate-600 dark:text-slate-300 text-lg leading-relaxed">
+                      {description}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
         </div>
-        <CardTitle className="text-xl leading-tight text-slate-800 dark:text-slate-200 px-2">
-          {title}
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="text-center px-4 flex-grow flex items-center justify-center">
-        <p className="text-slate-600 dark:text-slate-300 text-lg leading-relaxed">
-          {description}
-        </p>
-      </CardContent>
-    </Card>
-  ))}
-</div>
-  </div>
-</div>
 
         {/* Texto de cierre */}
         <div className="text-center">
           <p className="text-slate-500 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
-            Analizamos tu consumo energético y diseñamos la solución solar más eficiente para reducir costos 
-            y contribuir a un futuro más sostenible.
+            Analizamos tu consumo energético y diseñamos la solución solar más
+            eficiente para reducir costos y contribuir a un futuro más
+            sostenible.
           </p>
         </div>
       </div>

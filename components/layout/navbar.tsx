@@ -223,15 +223,22 @@ export const Navbar = () => {
         >
           Contacto
         </Link>
-        <Link
-          href="/renta-de-equipo"
-          className="text-base px-4 py-2 bg-primary hover:bg-accent/50 hover:text-accent-foreground rounded-md transition-colors"
-        >
-          Renta de maquinaria
-        </Link>
       </div>
 
-      <div className="hidden lg:flex">
+      <Link
+        href="/renta-de-equipo"
+        className="
+    hidden lg:inline-flex
+    text-base px-4 py-2
+    bg-primary hover:bg-primary/80
+    hover:text-accent-foreground
+    rounded-md transition-colors text-white
+  "
+      >
+        Renta de maquinaria
+      </Link>
+
+      <div className="hidden lg:flex pl-6">
         <ToggleTheme />
       </div>
     </header>

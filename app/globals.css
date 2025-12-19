@@ -88,5 +88,12 @@ html { scroll-behavior: smooth; }
   button[type="button"].bg-primary,
   button[type="reset"].bg-primary {
     background-color: hsl(var(--primary));
+    transition: background-color 0.3s;
+  }
+
+  button[type="submit"].bg-primary:hover,
+  button[type="button"].bg-primary:hover,
+  button[type="reset"].bg-primary:hover {
+    background-color: hsl(var(--primary) / 0.8); /* o el color que quieras */
   }
 }
