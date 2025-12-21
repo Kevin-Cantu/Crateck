@@ -79,7 +79,7 @@ export const NewsletterInlineSection = () => {
         {alert && (
           <Alert>
             <AlertTitle>
-              {alert.type === "destructive" ? "Error" : "¡Éxito!"}
+              {alert.type === "destructive" ? "Error" : "Todo listo"}
             </AlertTitle>
             <AlertDescription>{alert.message}</AlertDescription>
           </Alert>

@@ -67,7 +67,7 @@ export const NewsletterDialogSection = () => {
       // Guardamos que ya se suscribió
       localStorage.setItem("newsletter_subscribed", "1");
 
-      setAlert({ type: "success", message: "¡Gracias por suscribirte! Revisa tu correo." });
+      setAlert({ type: "success", message: "¡Gracias por suscribirte!" });
       setShowAlert(true);
       form.reset();
       setOpen(false);
@@ -100,7 +100,7 @@ export const NewsletterDialogSection = () => {
         {alert && (
           <Alert>
             <AlertTitle>
-              {alert.type === "destructive" ? "Error" : "¡Éxito!"}
+              {alert.type === "destructive" ? "Error" : "Todo listo"}
             </AlertTitle>
             <AlertDescription>{alert.message}</AlertDescription>
           </Alert>

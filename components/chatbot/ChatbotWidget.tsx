@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 // Simple icons
 const ChatIcon = ({ className }: { className?: string }) => (
-  <svg viewBox="0 0 24 24" fill="currentColor" className={cn("h-8 w-14", className)} aria-hidden>
+  <svg viewBox="0 0 24 24" fill="currentColor" className={cn("h-6 w-6 sm:h-8 sm:w-14 ", className)} aria-hidden>
     <path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Z" />
   </svg>
 );
@@ -301,7 +301,7 @@ export function ChatbotWidget() {
       <div className="flex justify-end mt-2">
         <Button
           aria-label="Abrir asistente"
-          className="h-16 w-16 rounded-full shadow-xl bg-primary text-primary-foreground hover:bg-primary/90"
+          className=" h-14 w-14  sm:h-16 sm:w-16 rounded-full shadow-xl bg-primary text-primary-foreground hover:bg-primary/90"
           onClick={handleToggleOpen}
         >
           <ChatIcon />
